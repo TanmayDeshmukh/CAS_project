@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+<robot name="serena" xmlns:xacro="http://ros.org/wiki/xacro">
+  
+  
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+  
+  
+   
+  <link name="base_footprint"/>
+   
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+
+  <link
+    name="base_link" type="fixed">
+    <inertial>
+      <origin
+        xyz="0.0 0.0 0.04"
+        rpy="0 0 0" />
+      <mass
+        value="5" />
+      <inertia
+        ixx="0.0187143213720734"
+        ixy="2.16918244771468E-06"
+        ixz="-8.56766285388452E-05"
+        iyy="0.0128351725594043"
+        iyz="-3.09220897274244E-06"
+        izz="0.0289702783000713" />
+    </inertial>
+    
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugbot_urdf_description/meshes/BugBotBod.STL"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.913725490196078 0.925490196078431 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugbot_urdf_description/meshes/BugBotBod.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  
+  
+ 
+  
+  
+  <link
+    name="wheel_right_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.887893590942272" />
+      <inertia
+        ixx="0.00271426770923714"
+        ixy="-5.4847246957164E-19"
+        ixz="2.41821291643718E-13"
+        iyy="0.00271494625570355"
+        iyz="1.54477498324254E-18"
+        izz="0.00523534304977873" />
+    </inertial>
+    
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugbot_urdf_description/meshes/Wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+      </material>
+    </visual>
+    
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugbot_urdf_description/meshes/Wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint
+    name="wheel_right_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.1 0.07"
+      rpy="1.5708 0 -3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_right_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="82"
+      velocity="10" />
+  </joint>
+  
+  
+  
+  <link
+    name="wheel_left_link">
+    <inertial>
+      <origin
+        xyz="-0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.887893590942272" />
+      <inertia
+        ixx="0.00271426770923714"
+        ixy="5.40703247508002E-19"
+        ixz="2.41832420741438E-13"
+        iyy="0.00271494625570355"
+        iyz="5.57398608182026E-20"
+        izz="0.00523534304977873" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugbot_urdf_description/meshes/Wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugbot_urdf_description/meshes/Wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_left_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.1 0.07"
+      rpy="1.5708 0 -3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_left_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="82"
+      velocity="10" />
+  </joint>
+  
+  
+   
+  
+  <gazebo reference="wheel_left_link">
+    <mu1>20.0</mu1>
+    <mu2>10.0</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>10.0</maxVel>
+    <fdir1>1 0 0</fdir1>
+    <material>Gazebo/Gold</material>
+  </gazebo>
+
+  <gazebo reference="wheel_right_link">
+    <mu1>20.0</mu1>
+    <mu2>10.0</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>10.0</maxVel>
+    <fdir1>1 0 0</fdir1>
+    <material>Gazebo/Gold</material>
+  </gazebo>
+
+  <gazebo reference="caster_left_link">
+    <mu>0.0</mu>
+    <mu2>0.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>10.0</maxVel>
+    <material>Gazebo/Gold</material>
+  </gazebo>
+
+  <gazebo reference="caster_right_link">
+    <mu1>0.0</mu1>
+    <mu2>0.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>10.0</maxVel>
+    <material>Gazebo/Gold</material>
+  </gazebo>
+  
+  
+  
+  <gazebo>
+  
+  
+  <plugin name="joint_states" filename="libgazebo_ros_joint_state_publisher.so">
+  <robotNamespace>/</robotNamespace>
+        <joint_name>wheel_right_joint</joint_name>
+        <joint_name>wheel_left_joint</joint_name>
+  </plugin>
+  
+  
+	  <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+	     <ros>
+		  <!-- Set namespace -->
+		  <namespace>/</namespace>
+
+		  <!-- Remap default topics -->
+		  <argument>cmd_vel:=cmd_vel</argument>
+		  <argument>odom:=odom</argument>
+		</ros>
+
+
+	    <!-- Plugin update rate in Hz -->
+	    <update_rate>20</update_rate>
+
+	    <!-- Name of left joint, defaults to `left_joint` -->
+	    <left_joint>wheel_left_joint</left_joint>
+
+	    <!-- Name of right joint, defaults to `right_joint` -->
+	    <right_joint>wheel_right_joint</right_joint>
+
+	    <!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
+	    <wheel_separation>0.500</wheel_separation>
+
+	    <!-- Diameter of the wheels, in meters, defaults to 0.15 m -->
+	    <wheel_diameter>0.200</wheel_diameter>
+
+	    <!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
+	    <wheelAcceleration>0.8</wheelAcceleration>
+
+	    <!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
+	    <wheelTorque>200</wheelTorque>
+
+	   
+
+	    <!-- Odometry frame, defaults to `odom` -->
+	    <odometry_frame>odom</odometry_frame>
+
+	    <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
+	    <robotBaseFrame>base_footprint</robotBaseFrame>
+
+	    <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
+	    <odometrySource>1</odometrySource>
+
+	    <!-- Set to true to publish transforms for the wheel links, defaults to false -->
+	    <publishWheelTF>true</publishWheelTF>
+	    
+	    <publishOdom>true</publishOdom>
+
+	    <!-- Set to true to publish transforms for the odometry, defaults to true -->
+	    <publish_odom>true</publish_odom>
+
+	    <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
+	    <publishWheelJointState>true</publishWheelJointState>
+
+	    <!-- Set to true to swap right and left wheels, defaults to true -->
+	    <legacyMode>false</legacyMode>
+	    
+	    
+	    <max_wheel_torque>200</max_wheel_torque>
+	    <max_acceleration>3.0</max_acceleration>
+		
+		
+	  </plugin>
+  </gazebo>
+  
+  
+</robot>
+
+
