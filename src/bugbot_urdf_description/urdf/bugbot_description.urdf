@@ -186,18 +186,98 @@
       velocity="10" />
   </joint>
   
-  <link name="IMU"/>
+  <link name="IMU">
+  </link>
+  <gazebo reference="IMU">
+	<sensor name="my_imu" type="imu">
+		<always_on>true</always_on>
+		<update_rate>30</update_rate>
+		
+		<imu>
+          <angular_velocity>
+            <x>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>2e-4</stddev>
+              </noise>
+            </x>
+            <y>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>2e-4</stddev>
+              </noise>
+            </y>
+            <z>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>2e-4</stddev>
+              </noise>
+            </z>
+          </angular_velocity>
+          <linear_acceleration>
+            <x>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>1.7e-2</stddev>
+              </noise>
+            </x>
+            <y>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>1.7e-2</stddev>
+              </noise>
+            </y>
+            <z>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>1.7e-2</stddev>
+              </noise>
+            </z>
+          </linear_acceleration>
+        </imu>
+        
+        
+		<plugin name="my_imu_plugin" filename="libgazebo_ros_imu_sensor.so">
+		  <ros>
+		    <!-- Will publish to /imu/data -->
+		    <namespace>/</namespace>
+		    <argument>~/out:=imu</argument>
+		  </ros>
+		  <!-- frame_name ommited, will be "my_link" -->
+		</plugin>
+	  </sensor> 
+  </gazebo>
+  
   <joint name="IMU_joint" type="fixed">
     <parent link="base_link"/>
     <child link="IMU"/>
     <origin xyz="0 0 0.08223" rpy="0 0 0"/>
   </joint>
-  <link name="GPS"/>
+  
+  <link name="GPS_link">
+  </link> 	
+  <gazebo reference="GPS_link">  
+	<sensor name="gps_sensor" type="gps">
+        <always_on>true</always_on>
+        <update_rate>1.0</update_rate>
+        <plugin name="gps_controller" filename="libgazebo_ros_gps_sensor.so">
+            <ros>
+                <!-- <namespace>/br</namespace> -->
+                <remapping>gps_controller/out:=gps</remapping>
+            </ros>
+            <frame_name>GPS_link</frame_name>
+        </plugin>
+    </sensor>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  
   <joint name="GPS_joint" type="fixed">
     <parent link="base_link"/>
-    <child link="GPS"/>
+    <child link="GPS_link"/>
     <origin xyz="0 0 0.08223" rpy="0 0 0"/>
   </joint>
+  
+  
    
   <gazebo reference="wheel_left_link">
     <mu1>20.0</mu1>
@@ -229,22 +309,28 @@
     <kd>100.0</kd>
     <minDepth>0.001</minDepth>
     <maxVel>10.0</maxVel>
-    <material>Gazebo/Gold</material>
+    
   </gazebo>
   
   
   
   <gazebo>
-  
-  
-  <plugin name="joint_states" filename="libgazebo_ros_joint_state_publisher.so">
-  <robotNamespace>/</robotNamespace>
-        <joint_name>wheel_right_joint</joint_name>
-        <joint_name>wheel_left_joint</joint_name>
-  </plugin>
-  
-  
-	  <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+	<plugin name="gazebo_ros_p3d" filename="libgazebo_ros_p3d.so">
+		<ros>
+		  <!-- Add namespace and remap the default topic -->
+		  <namespace>/</namespace>
+		  <argument>odom:=ground_truth_odom</argument>
+		</ros>
+		<!-- Replace camelCase elements with camel_case ones -->
+		<body_name>base_footprint</body_name>
+		<frame_name>world</frame_name>
+		<update_rate>10</update_rate>
+		<xyz_offsets>0 0 0</xyz_offsets>
+		<rpy_offsets>0.0 0.0 0.0</rpy_offsets>
+		<gaussian_noise>0.0</gaussian_noise>
+	</plugin>
+
+	<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
 	     <ros>
 		  <!-- Set namespace -->
 		  <namespace>/</namespace>
