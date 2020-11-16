@@ -78,11 +78,8 @@ f = Function('f',(state,action),[func])
 
 # 1. Create the solver (for the beginning we can use the default solver of Casadi, but we can look for others solvers that can interact with Casadi)
 
-nlp = dict()
-nlp['x'] = vertcat(state,action)
-nlp['f'] = func
+nlp = {'x' : vertcat(state,action), 'f' : func}
 
-#print(type(nlp))
 S = nlpsol('S', 'ipopt', nlp)
 print(S)
 
