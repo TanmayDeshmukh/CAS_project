@@ -28,22 +28,22 @@ n_states = 3
 # 1. State variables on each step (x(k),...x(k+N))
 
 state = [0 for i in range(0,N)]
-print("Size of state: ", len(state))
+#print("Size of state: ", len(state))
 
 for i in range(0,N):
 	state_name = "x" + "% s" % i
 	state[i] = MX.sym(state_name, n_states, 1)
-	print(type(state[i]))
+	#print(type(state[i]))
 
 # 2. Action on each step (u(k),...,u(k+N))
 
 action = [0 for i in range(0,N)]
-print("Size of action: ", len(action))
+#print("Size of action: ", len(action))
 
 for i in range(0,N):
 	action_name = "u" + "% s" % i
 	action[i] = MX.sym(action_name, n_states, 1)
-	print(type(action[i]))
+	#print(type(action[i]))
 
 ################################################################################
 # Equations required for the calculation
