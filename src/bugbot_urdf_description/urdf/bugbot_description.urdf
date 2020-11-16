@@ -1,0 +1,401 @@
+<?xml version="1.0"?>
+<robot name="serena" xmlns:xacro="http://ros.org/wiki/xacro">
+  
+  
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+   
+  <link name="base_footprint"/>
+
+
+  <link
+    name="base_link" type="fixed">
+    <inertial>
+      <origin
+        xyz="0.07 0.0 0.08"
+        rpy="0 0 0" />
+      <mass
+        value="20" />
+      <inertia
+        ixx="0.08"
+        ixy="0.0"
+        ixz="-0.01"
+        iyy="0.13"
+        iyz="0.00"
+        izz="0.16" />
+    </inertial>
+    
+    <visual>
+      <origin
+        xyz="-0.10179 -0.149 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugbot_urdf_description/meshes/BugBotBodyV3.STL"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.913725490196078 0.925490196078431 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="-0.10179 -0.149 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugbot_urdf_description/meshes/BugBotBodyV3.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  
+ 
+  
+  
+  <link
+    name="wheel_right_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.887893590942272" />
+      <inertia
+        ixx="0.00271426770923714"
+        ixy="-5.4847246957164E-19"
+        ixz="2.41821291643718E-13"
+        iyy="0.00271494625570355"
+        iyz="1.54477498324254E-18"
+        izz="0.00523534304977873" />
+    </inertial>
+    
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugbot_urdf_description/meshes/Wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+      </material>
+    </visual>
+    
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugbot_urdf_description/meshes/Wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint
+    name="wheel_right_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.145 0.10223"
+      rpy="1.5708 0 -3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_right_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="82"
+      velocity="10" />
+  </joint>
+  
+  
+  
+  <link
+    name="wheel_left_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.887893590942272" />
+      <inertia
+        ixx="0.00271426770923714"
+        ixy="5.40703247508002E-19"
+        ixz="2.41832420741438E-13"
+        iyy="0.00271494625570355"
+        iyz="5.57398608182026E-20"
+        izz="0.00523534304977873" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 3.141 0" />
+      <geometry>
+        <mesh
+          filename="package://bugbot_urdf_description/meshes/Wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugbot_urdf_description/meshes/Wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_left_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.145 0.10223"
+      rpy="1.5708 0 -3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_left_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="82"
+      velocity="10" />
+  </joint>
+  
+  <link name="IMU">
+  </link>
+  <gazebo reference="IMU">
+	<sensor name="my_imu" type="imu">
+		<always_on>true</always_on>
+		<update_rate>30</update_rate>
+		
+		<imu>
+          <angular_velocity>
+            <x>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>2e-4</stddev>
+              </noise>
+            </x>
+            <y>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>2e-4</stddev>
+              </noise>
+            </y>
+            <z>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>2e-4</stddev>
+              </noise>
+            </z>
+          </angular_velocity>
+          <linear_acceleration>
+            <x>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>1.7e-2</stddev>
+              </noise>
+            </x>
+            <y>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>1.7e-2</stddev>
+              </noise>
+            </y>
+            <z>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>1.7e-2</stddev>
+              </noise>
+            </z>
+          </linear_acceleration>
+        </imu>
+        
+        
+		<plugin name="my_imu_plugin" filename="libgazebo_ros_imu_sensor.so">
+		  <ros>
+		    <!-- Will publish to /imu/data -->
+		    <namespace>/</namespace>
+		    <argument>~/out:=imu</argument>
+		  </ros>
+		  <!-- frame_name ommited, will be "my_link" -->
+		</plugin>
+	  </sensor> 
+  </gazebo>
+  
+  <joint name="IMU_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="IMU"/>
+    <origin xyz="0 0 0.08223" rpy="0 0 0"/>
+  </joint>
+  
+  <link name="GPS_link">
+  </link> 	
+  <gazebo reference="GPS_link">  
+	<sensor name="gps_sensor" type="gps">
+        <always_on>true</always_on>
+        <update_rate>1.0</update_rate>
+        <plugin name="gps_controller" filename="libgazebo_ros_gps_sensor.so">
+            <ros>
+                <!-- <namespace>/br</namespace> -->
+                <remapping>gps_controller/out:=gps</remapping>
+            </ros>
+            <frame_name>GPS_link</frame_name>
+        </plugin>
+    </sensor>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  
+  <joint name="GPS_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="GPS_link"/>
+    <origin xyz="0 0 0.08223" rpy="0 0 0"/>
+  </joint>
+  
+  
+   
+  <gazebo reference="wheel_left_link">
+    <mu1>20.0</mu1>
+    <mu2>10.0</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>10.0</maxVel>
+    <fdir1>1 0 0</fdir1>
+    <material>Gazebo/Gold</material>
+  </gazebo>
+
+  <gazebo reference="wheel_right_link">
+    <mu1>20.0</mu1>
+    <mu2>10.0</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>10.0</maxVel>
+    <fdir1>1 0 0</fdir1>
+    <material>Gazebo/Gold</material>
+  </gazebo>
+
+
+  <gazebo reference="base_link">
+    <mu1>0.0</mu1>
+    <mu2>0.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>10.0</maxVel>
+    
+  </gazebo>
+  
+  
+  
+  <gazebo>
+	<plugin name="gazebo_ros_p3d" filename="libgazebo_ros_p3d.so">
+		<ros>
+		  <!-- Add namespace and remap the default topic -->
+		  <namespace>/</namespace>
+		  <argument>odom:=ground_truth_odom</argument>
+		</ros>
+		<!-- Replace camelCase elements with camel_case ones -->
+		<body_name>base_footprint</body_name>
+		<frame_name>world</frame_name>
+		<update_rate>10</update_rate>
+		<xyz_offsets>0 0 0</xyz_offsets>
+		<rpy_offsets>0.0 0.0 0.0</rpy_offsets>
+		<gaussian_noise>0.0</gaussian_noise>
+	</plugin>
+
+	<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+	     <ros>
+		  <!-- Set namespace -->
+		  <namespace>/</namespace>
+
+		  <!-- Remap default topics -->
+		  <argument>cmd_vel:=cmd_vel</argument>
+		  <argument>odom:=odom</argument>
+		</ros>
+
+
+	    <!-- Plugin update rate in Hz -->
+	    <update_rate>20</update_rate>
+
+	    <!-- Name of left joint, defaults to `left_joint` -->
+	    <left_joint>wheel_left_joint</left_joint>
+
+	    <!-- Name of right joint, defaults to `right_joint` -->
+	    <right_joint>wheel_right_joint</right_joint>
+
+	    <!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
+	    <wheel_separation>0.290</wheel_separation>
+
+	    <!-- Diameter of the wheels, in meters, defaults to 0.15 m -->
+	    <wheel_diameter>0.200</wheel_diameter>
+
+	    <!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
+	    <wheelAcceleration>0.8</wheelAcceleration>
+
+	    <!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
+	    <wheelTorque>100</wheelTorque>
+
+	   
+
+	    <!-- Odometry frame, defaults to `odom` -->
+	    <odometry_frame>odom</odometry_frame>
+
+	    <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
+	    <robotBaseFrame>base_footprint</robotBaseFrame>
+
+	    <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
+	    <odometrySource>1</odometrySource>
+
+	    <!-- Set to true to publish transforms for the wheel links, defaults to false -->
+	    <publishWheelTF>true</publishWheelTF>
+	    
+	    <publishOdom>true</publishOdom>
+
+	    <!-- Set to true to publish transforms for the odometry, defaults to true -->
+	    <publish_odom>true</publish_odom>
+
+	    <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
+	    <publishWheelJointState>true</publishWheelJointState>
+
+	    <!-- Set to true to swap right and left wheels, defaults to true -->
+	    <legacyMode>false</legacyMode>
+	    
+	    
+	    <max_wheel_torque>200</max_wheel_torque>
+	    <max_acceleration>3.0</max_acceleration>
+		
+		
+	  </plugin>
+  </gazebo>
+  
+  
+</robot>
+
+
