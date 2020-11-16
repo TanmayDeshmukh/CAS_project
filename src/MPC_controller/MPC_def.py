@@ -86,7 +86,7 @@ print(S)
 # 2. Establish a guess initial point
 
 guess = []
-for i in range(18):
+for i in range((n_state + n_action) * N):
 	guess.append(0)
 
 # 3. Store the result of the calculation (can be useful to see how the robot deviates from the desired values)
