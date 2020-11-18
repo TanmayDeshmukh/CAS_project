@@ -9,7 +9,7 @@
 2. colcon build --symlink-install
 3. . install/setup.bash (this sources ROS and all available ros nodes in this package)
 
-In seperate terminals: 
+# In seperate terminals: 
 4. ros2 launch gazebo_ros gazebo.launch.py verbose:=true server:=true gui:=true pause:=false
 5. ros2 run gazebo_ros spawn_entity.py -entity my_bugbot -x 0.5 -y 0 -z 1 -file ~/CAS_ws/src/bugbot_urdf_description/urdf/bugbot_description.urdf
 4. ros2 launch cas_project nodes_launch.py
