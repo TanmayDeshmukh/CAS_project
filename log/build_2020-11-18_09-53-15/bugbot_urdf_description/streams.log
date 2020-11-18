@@ -1,0 +1,44 @@
+[0.932s] Invoking command in '/home/owais/CAS/CAS_project/src/bugbot_urdf_description': PYTHONPATH=/home/owais/CAS/CAS_project/install/bugbot_urdf_description/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/bugbot_urdf_description build --build-base /home/owais/CAS/CAS_project/build/bugbot_urdf_description/build install --prefix /home/owais/CAS/CAS_project/install/bugbot_urdf_description --record /home/owais/CAS/CAS_project/build/bugbot_urdf_description/install.log --single-version-externally-managed
+[1.865s] running egg_info
+[1.867s] creating ../../build/bugbot_urdf_description/bugbot_urdf_description.egg-info
+[1.867s] writing ../../build/bugbot_urdf_description/bugbot_urdf_description.egg-info/PKG-INFO
+[1.868s] writing dependency_links to ../../build/bugbot_urdf_description/bugbot_urdf_description.egg-info/dependency_links.txt
+[1.869s] writing entry points to ../../build/bugbot_urdf_description/bugbot_urdf_description.egg-info/entry_points.txt
+[1.869s] writing requirements to ../../build/bugbot_urdf_description/bugbot_urdf_description.egg-info/requires.txt
+[1.869s] writing top-level names to ../../build/bugbot_urdf_description/bugbot_urdf_description.egg-info/top_level.txt
+[1.872s] writing manifest file '../../build/bugbot_urdf_description/bugbot_urdf_description.egg-info/SOURCES.txt'
+[2.472s] reading manifest file '../../build/bugbot_urdf_description/bugbot_urdf_description.egg-info/SOURCES.txt'
+[2.475s] writing manifest file '../../build/bugbot_urdf_description/bugbot_urdf_description.egg-info/SOURCES.txt'
+[2.476s] running build
+[2.476s] running build_py
+[2.477s] creating /home/owais/CAS/CAS_project/build/bugbot_urdf_description/build
+[2.477s] creating /home/owais/CAS/CAS_project/build/bugbot_urdf_description/build/lib
+[2.478s] creating /home/owais/CAS/CAS_project/build/bugbot_urdf_description/build/lib/bugbot_urdf_description
+[2.478s] copying bugbot_urdf_description/__init__.py -> /home/owais/CAS/CAS_project/build/bugbot_urdf_description/build/lib/bugbot_urdf_description
+[2.478s] copying bugbot_urdf_description/state_publisher.py -> /home/owais/CAS/CAS_project/build/bugbot_urdf_description/build/lib/bugbot_urdf_description
+[2.479s] running install
+[2.495s] running install_lib
+[2.517s] creating /home/owais/CAS/CAS_project/install/bugbot_urdf_description/lib/python3.8/site-packages/bugbot_urdf_description
+[2.518s] copying /home/owais/CAS/CAS_project/build/bugbot_urdf_description/build/lib/bugbot_urdf_description/__init__.py -> /home/owais/CAS/CAS_project/install/bugbot_urdf_description/lib/python3.8/site-packages/bugbot_urdf_description
+[2.519s] copying /home/owais/CAS/CAS_project/build/bugbot_urdf_description/build/lib/bugbot_urdf_description/state_publisher.py -> /home/owais/CAS/CAS_project/install/bugbot_urdf_description/lib/python3.8/site-packages/bugbot_urdf_description
+[2.520s] byte-compiling /home/owais/CAS/CAS_project/install/bugbot_urdf_description/lib/python3.8/site-packages/bugbot_urdf_description/__init__.py to __init__.cpython-38.pyc
+[2.524s] byte-compiling /home/owais/CAS/CAS_project/install/bugbot_urdf_description/lib/python3.8/site-packages/bugbot_urdf_description/state_publisher.py to state_publisher.cpython-38.pyc
+[2.526s] running install_data
+[2.552s] creating /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/ament_index
+[2.553s] creating /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/ament_index/resource_index
+[2.553s] creating /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/ament_index/resource_index/packages
+[2.554s] copying resource/bugbot_urdf_description -> /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/ament_index/resource_index/packages
+[2.556s] copying package.xml -> /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/bugbot_urdf_description
+[2.557s] copying launch/state_publisher.launch.py -> /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/bugbot_urdf_description
+[2.558s] copying urdf/bugbot_viz.rviz2 -> /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/bugbot_urdf_description
+[2.558s] copying urdf/bugbot_description.urdf -> /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/bugbot_urdf_description
+[2.558s] creating /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/bugbot_urdf_description/meshes
+[2.559s] copying meshes/BugBotBody.STL -> /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/bugbot_urdf_description/meshes
+[2.559s] copying meshes/BugBotBodyV3.STL -> /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/bugbot_urdf_description/meshes
+[2.560s] copying meshes/Wheel.STL -> /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/bugbot_urdf_description/meshes
+[2.560s] running install_egg_info
+[2.570s] Copying ../../build/bugbot_urdf_description/bugbot_urdf_description.egg-info to /home/owais/CAS/CAS_project/install/bugbot_urdf_description/lib/python3.8/site-packages/bugbot_urdf_description-0.0.0-py3.8.egg-info
+[2.570s] running install_scripts
+[2.655s] Installing state_publisher script to /home/owais/CAS/CAS_project/install/bugbot_urdf_description/lib/bugbot_urdf_description
+[2.657s] writing list of installed files to '/home/owais/CAS/CAS_project/build/bugbot_urdf_description/install.log'
+[2.724s] Invoked command in '/home/owais/CAS/CAS_project/src/bugbot_urdf_description' returned '0': PYTHONPATH=/home/owais/CAS/CAS_project/install/bugbot_urdf_description/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/bugbot_urdf_description build --build-base /home/owais/CAS/CAS_project/build/bugbot_urdf_description/build install --prefix /home/owais/CAS/CAS_project/install/bugbot_urdf_description --record /home/owais/CAS/CAS_project/build/bugbot_urdf_description/install.log --single-version-externally-managed

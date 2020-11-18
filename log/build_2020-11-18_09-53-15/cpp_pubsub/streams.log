@@ -1,0 +1,71 @@
+[0.762s] Invoking command in '/home/owais/CAS/CAS_project/build/cpp_pubsub': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/owais/CAS/CAS_project/src/cpp_pubsub -DCMAKE_INSTALL_PREFIX=/home/owais/CAS/CAS_project/install/cpp_pubsub
+[3.280s] -- The C compiler identification is GNU 9.3.0
+[3.607s] -- The CXX compiler identification is GNU 9.3.0
+[3.682s] -- Check for working C compiler: /usr/bin/cc
+[3.956s] -- Check for working C compiler: /usr/bin/cc -- works
+[3.993s] -- Detecting C compiler ABI info
+[4.195s] -- Detecting C compiler ABI info - done
+[4.261s] -- Detecting C compile features
+[4.329s] -- Detecting C compile features - done
+[4.344s] -- Check for working CXX compiler: /usr/bin/c++
+[4.583s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[4.587s] -- Detecting CXX compiler ABI info
+[4.806s] -- Detecting CXX compiler ABI info - done
+[4.866s] -- Detecting CXX compile features
+[4.869s] -- Detecting CXX compile features - done
+[4.878s] -- Found ament_cmake: 0.9.7 (/opt/ros/foxy/share/ament_cmake/cmake)
+[4.984s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.5", minimum required is "3") 
+[4.985s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[5.716s] -- Found rclcpp: 2.2.0 (/opt/ros/foxy/share/rclcpp/cmake)
+[5.844s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[5.874s] -- Found rosidl_adapter: 1.1.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[6.361s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[6.468s] -- Found FastRTPS: /opt/ros/foxy/include  
+[6.805s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[7.051s] -- Found rmw_implementation_cmake: 1.0.2 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[7.057s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[7.065s] -- Looking for pthread.h
+[7.425s] -- Looking for pthread.h - found
+[7.431s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[7.638s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[7.639s] -- Looking for pthread_create in pthreads
+[7.807s] -- Looking for pthread_create in pthreads - not found
+[7.808s] -- Looking for pthread_create in pthread
+[7.992s] -- Looking for pthread_create in pthread - found
+[7.996s] -- Found Threads: TRUE  
+[8.883s] -- Configuring done
+[8.923s] -- Generating done
+[8.929s] -- Build files have been written to: /home/owais/CAS/CAS_project/build/cpp_pubsub
+[8.952s] Invoked command in '/home/owais/CAS/CAS_project/build/cpp_pubsub' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/owais/CAS/CAS_project/src/cpp_pubsub -DCMAKE_INSTALL_PREFIX=/home/owais/CAS/CAS_project/install/cpp_pubsub
+[8.954s] Invoking command in '/home/owais/CAS/CAS_project/build/cpp_pubsub': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/owais/CAS/CAS_project/build/cpp_pubsub -- -j4 -l4
+[9.058s] [35m[1mScanning dependencies of target talker[0m
+[9.068s] [35m[1mScanning dependencies of target listener[0m
+[9.198s] [ 25%] [32mBuilding CXX object CMakeFiles/talker.dir/src/publisher_member_function.cpp.o[0m
+[9.214s] [ 50%] [32mBuilding CXX object CMakeFiles/listener.dir/src/subscriber_member_function.cpp.o[0m
+[21.920s] [ 75%] [32m[1mLinking CXX executable talker[0m
+[22.398s] [ 75%] Built target talker
+[27.050s] [100%] [32m[1mLinking CXX executable listener[0m
+[27.716s] [100%] Built target listener
+[27.741s] Invoked command in '/home/owais/CAS/CAS_project/build/cpp_pubsub' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/owais/CAS/CAS_project/build/cpp_pubsub -- -j4 -l4
+[27.834s] Invoking command in '/home/owais/CAS/CAS_project/build/cpp_pubsub': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/owais/CAS/CAS_project/build/cpp_pubsub
+[27.852s] -- Install configuration: ""
+[27.853s] -- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/lib/cpp_pubsub/talker
+[27.855s] -- Set runtime path of "/home/owais/CAS/CAS_project/install/cpp_pubsub/lib/cpp_pubsub/talker" to ""
+[27.856s] -- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/lib/cpp_pubsub/listener
+[27.860s] -- Set runtime path of "/home/owais/CAS/CAS_project/install/cpp_pubsub/lib/cpp_pubsub/listener" to ""
+[27.861s] -- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/ament_index/resource_index/package_run_dependencies/cpp_pubsub
+[27.861s] -- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/ament_index/resource_index/parent_prefix_path/cpp_pubsub
+[27.862s] -- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/environment/ament_prefix_path.sh
+[27.862s] -- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/environment/ament_prefix_path.dsv
+[27.863s] -- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/environment/path.sh
+[27.864s] -- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/environment/path.dsv
+[27.864s] -- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/local_setup.bash
+[27.865s] -- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/local_setup.sh
+[27.866s] -- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/local_setup.zsh
+[27.866s] -- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/local_setup.dsv
+[27.866s] -- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/package.dsv
+[27.867s] -- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/ament_index/resource_index/packages/cpp_pubsub
+[27.867s] -- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/cmake/cpp_pubsubConfig.cmake
+[27.867s] -- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/cmake/cpp_pubsubConfig-version.cmake
+[27.868s] -- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/package.xml
+[27.875s] Invoked command in '/home/owais/CAS/CAS_project/build/cpp_pubsub' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/owais/CAS/CAS_project/build/cpp_pubsub

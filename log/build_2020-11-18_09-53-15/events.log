@@ -1,0 +1,397 @@
+[0.000000] (-) TimerEvent: {}
+[0.001531] (bugbot_urdf_description) JobQueued: {'identifier': 'bugbot_urdf_description', 'dependencies': OrderedDict()}
+[0.001674] (cpp_pubsub) JobQueued: {'identifier': 'cpp_pubsub', 'dependencies': OrderedDict()}
+[0.004632] (bugbot_urdf_description) JobStarted: {'identifier': 'bugbot_urdf_description'}
+[0.037717] (cpp_pubsub) JobStarted: {'identifier': 'cpp_pubsub'}
+[0.099998] (-) TimerEvent: {}
+[0.200932] (-) TimerEvent: {}
+[0.302965] (-) TimerEvent: {}
+[0.403526] (-) TimerEvent: {}
+[0.505055] (-) TimerEvent: {}
+[0.605523] (-) TimerEvent: {}
+[0.706055] (-) TimerEvent: {}
+[0.797730] (cpp_pubsub) JobProgress: {'identifier': 'cpp_pubsub', 'progress': 'cmake'}
+[0.798424] (cpp_pubsub) Command: {'cmd': ['/usr/bin/cmake', '/home/owais/CAS/CAS_project/src/cpp_pubsub', '-DCMAKE_INSTALL_PREFIX=/home/owais/CAS/CAS_project/install/cpp_pubsub'], 'cwd': '/home/owais/CAS/CAS_project/build/cpp_pubsub', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:en'), ('USER', 'owais'), ('SSH_AGENT_PID', '1156'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('QT4_IM_MODULE', 'ibus'), ('HOME', '/home/owais'), ('OLDPWD', '/home/owais/CAS'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '824'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'owais'), ('JOURNAL_STREAM', '9:29262'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'owais'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/owaisCAS:@/tmp/.ICE-unix/2725,unix/owaisCAS:/tmp/.ICE-unix/2725'), ('INVOCATION_ID', 'b579194f56e54f4eb4bfe539d312425b'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/34edb3d1_b814_4089_8ea2_124450ea4bee'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.131'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/owais/CAS/CAS_project/build/cpp_pubsub'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[0.807027] (-) TimerEvent: {}
+[0.910524] (-) TimerEvent: {}
+[0.934604] (bugbot_urdf_description) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../build/bugbot_urdf_description', 'build', '--build-base', '/home/owais/CAS/CAS_project/build/bugbot_urdf_description/build', 'install', '--prefix', '/home/owais/CAS/CAS_project/install/bugbot_urdf_description', '--record', '/home/owais/CAS/CAS_project/build/bugbot_urdf_description/install.log', '--single-version-externally-managed'], 'cwd': '/home/owais/CAS/CAS_project/src/bugbot_urdf_description', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US:en', 'USER': 'owais', 'SSH_AGENT_PID': '1156', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib', 'QT4_IM_MODULE': 'ibus', 'HOME': '/home/owais', 'OLDPWD': '/home/owais/CAS', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '824', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'ROS_DISTRO': 'foxy', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'owais', 'JOURNAL_STREAM': '9:29262', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'owais', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '2', 'PATH': '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/owaisCAS:@/tmp/.ICE-unix/2725,unix/owaisCAS:/tmp/.ICE-unix/2725', 'INVOCATION_ID': 'b579194f56e54f4eb4bfe539d312425b', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/34edb3d1_b814_4089_8ea2_124450ea4bee', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.131', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/foxy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/owais/CAS/CAS_project/build/bugbot_urdf_description', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'CLUTTER_IM_MODULE': 'ibus', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/owais/CAS/CAS_project/install/bugbot_urdf_description/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages', 'COLCON': '1', 'VTE_VERSION': '6003'}, 'shell': False}
+[1.010679] (-) TimerEvent: {}
+[1.112224] (-) TimerEvent: {}
+[1.212709] (-) TimerEvent: {}
+[1.319292] (-) TimerEvent: {}
+[1.420554] (-) TimerEvent: {}
+[1.521085] (-) TimerEvent: {}
+[1.621645] (-) TimerEvent: {}
+[1.722628] (-) TimerEvent: {}
+[1.823856] (-) TimerEvent: {}
+[1.869384] (bugbot_urdf_description) StdoutLine: {'line': b'running egg_info\n'}
+[1.871049] (bugbot_urdf_description) StdoutLine: {'line': b'creating ../../build/bugbot_urdf_description/bugbot_urdf_description.egg-info\n'}
+[1.871758] (bugbot_urdf_description) StdoutLine: {'line': b'writing ../../build/bugbot_urdf_description/bugbot_urdf_description.egg-info/PKG-INFO\n'}
+[1.872480] (bugbot_urdf_description) StdoutLine: {'line': b'writing dependency_links to ../../build/bugbot_urdf_description/bugbot_urdf_description.egg-info/dependency_links.txt\n'}
+[1.873049] (bugbot_urdf_description) StdoutLine: {'line': b'writing entry points to ../../build/bugbot_urdf_description/bugbot_urdf_description.egg-info/entry_points.txt\n'}
+[1.873401] (bugbot_urdf_description) StdoutLine: {'line': b'writing requirements to ../../build/bugbot_urdf_description/bugbot_urdf_description.egg-info/requires.txt\n'}
+[1.873708] (bugbot_urdf_description) StdoutLine: {'line': b'writing top-level names to ../../build/bugbot_urdf_description/bugbot_urdf_description.egg-info/top_level.txt\n'}
+[1.876390] (bugbot_urdf_description) StdoutLine: {'line': b"writing manifest file '../../build/bugbot_urdf_description/bugbot_urdf_description.egg-info/SOURCES.txt'\n"}
+[1.924223] (-) TimerEvent: {}
+[2.024772] (-) TimerEvent: {}
+[2.125256] (-) TimerEvent: {}
+[2.225932] (-) TimerEvent: {}
+[2.326359] (-) TimerEvent: {}
+[2.427547] (-) TimerEvent: {}
+[2.476202] (bugbot_urdf_description) StdoutLine: {'line': b"reading manifest file '../../build/bugbot_urdf_description/bugbot_urdf_description.egg-info/SOURCES.txt'\n"}
+[2.479889] (bugbot_urdf_description) StdoutLine: {'line': b"writing manifest file '../../build/bugbot_urdf_description/bugbot_urdf_description.egg-info/SOURCES.txt'\n"}
+[2.480595] (bugbot_urdf_description) StdoutLine: {'line': b'running build\n'}
+[2.480882] (bugbot_urdf_description) StdoutLine: {'line': b'running build_py\n'}
+[2.481525] (bugbot_urdf_description) StdoutLine: {'line': b'creating /home/owais/CAS/CAS_project/build/bugbot_urdf_description/build\n'}
+[2.481938] (bugbot_urdf_description) StdoutLine: {'line': b'creating /home/owais/CAS/CAS_project/build/bugbot_urdf_description/build/lib\n'}
+[2.482235] (bugbot_urdf_description) StdoutLine: {'line': b'creating /home/owais/CAS/CAS_project/build/bugbot_urdf_description/build/lib/bugbot_urdf_description\n'}
+[2.482494] (bugbot_urdf_description) StdoutLine: {'line': b'copying bugbot_urdf_description/__init__.py -> /home/owais/CAS/CAS_project/build/bugbot_urdf_description/build/lib/bugbot_urdf_description\n'}
+[2.482748] (bugbot_urdf_description) StdoutLine: {'line': b'copying bugbot_urdf_description/state_publisher.py -> /home/owais/CAS/CAS_project/build/bugbot_urdf_description/build/lib/bugbot_urdf_description\n'}
+[2.483172] (bugbot_urdf_description) StdoutLine: {'line': b'running install\n'}
+[2.499858] (bugbot_urdf_description) StdoutLine: {'line': b'running install_lib\n'}
+[2.521097] (bugbot_urdf_description) StdoutLine: {'line': b'creating /home/owais/CAS/CAS_project/install/bugbot_urdf_description/lib/python3.8/site-packages/bugbot_urdf_description\n'}
+[2.521933] (bugbot_urdf_description) StdoutLine: {'line': b'copying /home/owais/CAS/CAS_project/build/bugbot_urdf_description/build/lib/bugbot_urdf_description/__init__.py -> /home/owais/CAS/CAS_project/install/bugbot_urdf_description/lib/python3.8/site-packages/bugbot_urdf_description\n'}
+[2.523182] (bugbot_urdf_description) StdoutLine: {'line': b'copying /home/owais/CAS/CAS_project/build/bugbot_urdf_description/build/lib/bugbot_urdf_description/state_publisher.py -> /home/owais/CAS/CAS_project/install/bugbot_urdf_description/lib/python3.8/site-packages/bugbot_urdf_description\n'}
+[2.524053] (bugbot_urdf_description) StdoutLine: {'line': b'byte-compiling /home/owais/CAS/CAS_project/install/bugbot_urdf_description/lib/python3.8/site-packages/bugbot_urdf_description/__init__.py to __init__.cpython-38.pyc\n'}
+[2.527965] (-) TimerEvent: {}
+[2.528670] (bugbot_urdf_description) StdoutLine: {'line': b'byte-compiling /home/owais/CAS/CAS_project/install/bugbot_urdf_description/lib/python3.8/site-packages/bugbot_urdf_description/state_publisher.py to state_publisher.cpython-38.pyc\n'}
+[2.530228] (bugbot_urdf_description) StdoutLine: {'line': b'running install_data\n'}
+[2.556396] (bugbot_urdf_description) StdoutLine: {'line': b'creating /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/ament_index\n'}
+[2.557361] (bugbot_urdf_description) StdoutLine: {'line': b'creating /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/ament_index/resource_index\n'}
+[2.557793] (bugbot_urdf_description) StdoutLine: {'line': b'creating /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/ament_index/resource_index/packages\n'}
+[2.558364] (bugbot_urdf_description) StdoutLine: {'line': b'copying resource/bugbot_urdf_description -> /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/ament_index/resource_index/packages\n'}
+[2.559318] (bugbot_urdf_description) StdoutLine: {'line': b'copying package.xml -> /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/bugbot_urdf_description\n'}
+[2.561787] (bugbot_urdf_description) StdoutLine: {'line': b'copying launch/state_publisher.launch.py -> /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/bugbot_urdf_description\n'}
+[2.562240] (bugbot_urdf_description) StdoutLine: {'line': b'copying urdf/bugbot_viz.rviz2 -> /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/bugbot_urdf_description\n'}
+[2.562602] (bugbot_urdf_description) StdoutLine: {'line': b'copying urdf/bugbot_description.urdf -> /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/bugbot_urdf_description\n'}
+[2.562932] (bugbot_urdf_description) StdoutLine: {'line': b'creating /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/bugbot_urdf_description/meshes\n'}
+[2.563303] (bugbot_urdf_description) StdoutLine: {'line': b'copying meshes/BugBotBody.STL -> /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/bugbot_urdf_description/meshes\n'}
+[2.563749] (bugbot_urdf_description) StdoutLine: {'line': b'copying meshes/BugBotBodyV3.STL -> /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/bugbot_urdf_description/meshes\n'}
+[2.564094] (bugbot_urdf_description) StdoutLine: {'line': b'copying meshes/Wheel.STL -> /home/owais/CAS/CAS_project/install/bugbot_urdf_description/share/bugbot_urdf_description/meshes\n'}
+[2.564493] (bugbot_urdf_description) StdoutLine: {'line': b'running install_egg_info\n'}
+[2.574410] (bugbot_urdf_description) StdoutLine: {'line': b'Copying ../../build/bugbot_urdf_description/bugbot_urdf_description.egg-info to /home/owais/CAS/CAS_project/install/bugbot_urdf_description/lib/python3.8/site-packages/bugbot_urdf_description-0.0.0-py3.8.egg-info\n'}
+[2.574896] (bugbot_urdf_description) StdoutLine: {'line': b'running install_scripts\n'}
+[2.633473] (-) TimerEvent: {}
+[2.659353] (bugbot_urdf_description) StdoutLine: {'line': b'Installing state_publisher script to /home/owais/CAS/CAS_project/install/bugbot_urdf_description/lib/bugbot_urdf_description\n'}
+[2.660885] (bugbot_urdf_description) StdoutLine: {'line': b"writing list of installed files to '/home/owais/CAS/CAS_project/build/bugbot_urdf_description/install.log'\n"}
+[2.728026] (bugbot_urdf_description) CommandEnded: {'returncode': 0}
+[2.734018] (-) TimerEvent: {}
+[2.763244] (bugbot_urdf_description) JobEnded: {'identifier': 'bugbot_urdf_description', 'rc': 0}
+[2.835229] (-) TimerEvent: {}
+[2.936316] (-) TimerEvent: {}
+[3.037449] (-) TimerEvent: {}
+[3.138548] (-) TimerEvent: {}
+[3.239103] (-) TimerEvent: {}
+[3.317501] (cpp_pubsub) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.3.0\n'}
+[3.339379] (-) TimerEvent: {}
+[3.439945] (-) TimerEvent: {}
+[3.541165] (-) TimerEvent: {}
+[3.641614] (-) TimerEvent: {}
+[3.644199] (cpp_pubsub) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.3.0\n'}
+[3.719929] (cpp_pubsub) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[3.742532] (-) TimerEvent: {}
+[3.843198] (-) TimerEvent: {}
+[3.944217] (-) TimerEvent: {}
+[3.993215] (cpp_pubsub) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[4.030069] (cpp_pubsub) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[4.044650] (-) TimerEvent: {}
+[4.145340] (-) TimerEvent: {}
+[4.232132] (cpp_pubsub) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[4.245690] (-) TimerEvent: {}
+[4.298302] (cpp_pubsub) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[4.346762] (-) TimerEvent: {}
+[4.366170] (cpp_pubsub) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[4.381338] (cpp_pubsub) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[4.446935] (-) TimerEvent: {}
+[4.548697] (-) TimerEvent: {}
+[4.620605] (cpp_pubsub) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[4.624496] (cpp_pubsub) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[4.648973] (-) TimerEvent: {}
+[4.749367] (-) TimerEvent: {}
+[4.843410] (cpp_pubsub) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[4.849454] (-) TimerEvent: {}
+[4.903928] (cpp_pubsub) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[4.906826] (cpp_pubsub) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[4.915293] (cpp_pubsub) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.7 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[4.950032] (-) TimerEvent: {}
+[5.021430] (cpp_pubsub) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.5", minimum required is "3") \n'}
+[5.022080] (cpp_pubsub) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[5.050371] (-) TimerEvent: {}
+[5.151072] (-) TimerEvent: {}
+[5.251863] (-) TimerEvent: {}
+[5.352378] (-) TimerEvent: {}
+[5.453025] (-) TimerEvent: {}
+[5.553831] (-) TimerEvent: {}
+[5.654701] (-) TimerEvent: {}
+[5.753338] (cpp_pubsub) StdoutLine: {'line': b'-- Found rclcpp: 2.2.0 (/opt/ros/foxy/share/rclcpp/cmake)\n'}
+[5.754854] (-) TimerEvent: {}
+[5.856014] (-) TimerEvent: {}
+[5.881557] (cpp_pubsub) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[5.911396] (cpp_pubsub) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.1.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[5.956482] (-) TimerEvent: {}
+[6.059565] (-) TimerEvent: {}
+[6.161156] (-) TimerEvent: {}
+[6.261813] (-) TimerEvent: {}
+[6.363110] (-) TimerEvent: {}
+[6.398682] (cpp_pubsub) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[6.463194] (-) TimerEvent: {}
+[6.505296] (cpp_pubsub) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[6.563961] (-) TimerEvent: {}
+[6.665105] (-) TimerEvent: {}
+[6.766240] (-) TimerEvent: {}
+[6.842870] (cpp_pubsub) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[6.866652] (-) TimerEvent: {}
+[6.967216] (-) TimerEvent: {}
+[7.068443] (-) TimerEvent: {}
+[7.088473] (cpp_pubsub) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 1.0.2 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)\n'}
+[7.094094] (cpp_pubsub) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[7.102295] (cpp_pubsub) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[7.168872] (-) TimerEvent: {}
+[7.269745] (-) TimerEvent: {}
+[7.370582] (-) TimerEvent: {}
+[7.462030] (cpp_pubsub) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[7.468759] (cpp_pubsub) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[7.470670] (-) TimerEvent: {}
+[7.571421] (-) TimerEvent: {}
+[7.672085] (-) TimerEvent: {}
+[7.675729] (cpp_pubsub) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed\n'}
+[7.676313] (cpp_pubsub) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads\n'}
+[7.773048] (-) TimerEvent: {}
+[7.844767] (cpp_pubsub) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads - not found\n'}
+[7.845298] (cpp_pubsub) StdoutLine: {'line': b'-- Looking for pthread_create in pthread\n'}
+[7.873441] (-) TimerEvent: {}
+[7.974613] (-) TimerEvent: {}
+[8.029973] (cpp_pubsub) StdoutLine: {'line': b'-- Looking for pthread_create in pthread - found\n'}
+[8.033796] (cpp_pubsub) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[8.075564] (-) TimerEvent: {}
+[8.176779] (-) TimerEvent: {}
+[8.277572] (-) TimerEvent: {}
+[8.378450] (-) TimerEvent: {}
+[8.478965] (-) TimerEvent: {}
+[8.579448] (-) TimerEvent: {}
+[8.680013] (-) TimerEvent: {}
+[8.781048] (-) TimerEvent: {}
+[8.881704] (-) TimerEvent: {}
+[8.920137] (cpp_pubsub) StdoutLine: {'line': b'-- Configuring done\n'}
+[8.960428] (cpp_pubsub) StdoutLine: {'line': b'-- Generating done\n'}
+[8.966174] (cpp_pubsub) StdoutLine: {'line': b'-- Build files have been written to: /home/owais/CAS/CAS_project/build/cpp_pubsub\n'}
+[8.981917] (-) TimerEvent: {}
+[8.988821] (cpp_pubsub) CommandEnded: {'returncode': 0}
+[8.990709] (cpp_pubsub) JobProgress: {'identifier': 'cpp_pubsub', 'progress': 'build'}
+[8.990805] (cpp_pubsub) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/owais/CAS/CAS_project/build/cpp_pubsub', '--', '-j4', '-l4'], 'cwd': '/home/owais/CAS/CAS_project/build/cpp_pubsub', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:en'), ('USER', 'owais'), ('SSH_AGENT_PID', '1156'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('QT4_IM_MODULE', 'ibus'), ('HOME', '/home/owais'), ('OLDPWD', '/home/owais/CAS'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '824'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'owais'), ('JOURNAL_STREAM', '9:29262'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'owais'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/owaisCAS:@/tmp/.ICE-unix/2725,unix/owaisCAS:/tmp/.ICE-unix/2725'), ('INVOCATION_ID', 'b579194f56e54f4eb4bfe539d312425b'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/34edb3d1_b814_4089_8ea2_124450ea4bee'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.131'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/owais/CAS/CAS_project/build/cpp_pubsub'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[9.082560] (-) TimerEvent: {}
+[9.095697] (cpp_pubsub) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target talker\x1b[0m\n'}
+[9.105895] (cpp_pubsub) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target listener\x1b[0m\n'}
+[9.183066] (-) TimerEvent: {}
+[9.235176] (cpp_pubsub) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/talker.dir/src/publisher_member_function.cpp.o\x1b[0m\n'}
+[9.251323] (cpp_pubsub) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/listener.dir/src/subscriber_member_function.cpp.o\x1b[0m\n'}
+[9.283174] (-) TimerEvent: {}
+[9.383786] (-) TimerEvent: {}
+[9.484786] (-) TimerEvent: {}
+[9.586192] (-) TimerEvent: {}
+[9.686810] (-) TimerEvent: {}
+[9.787755] (-) TimerEvent: {}
+[9.896111] (-) TimerEvent: {}
+[9.999097] (-) TimerEvent: {}
+[10.099724] (-) TimerEvent: {}
+[10.200467] (-) TimerEvent: {}
+[10.720282] (-) TimerEvent: {}
+[10.828752] (-) TimerEvent: {}
+[10.929560] (-) TimerEvent: {}
+[11.030122] (-) TimerEvent: {}
+[11.130834] (-) TimerEvent: {}
+[11.233888] (-) TimerEvent: {}
+[11.334846] (-) TimerEvent: {}
+[11.435287] (-) TimerEvent: {}
+[11.539741] (-) TimerEvent: {}
+[11.643921] (-) TimerEvent: {}
+[11.744485] (-) TimerEvent: {}
+[11.845364] (-) TimerEvent: {}
+[11.946119] (-) TimerEvent: {}
+[12.047167] (-) TimerEvent: {}
+[12.147948] (-) TimerEvent: {}
+[12.254291] (-) TimerEvent: {}
+[12.360046] (-) TimerEvent: {}
+[12.462871] (-) TimerEvent: {}
+[12.563806] (-) TimerEvent: {}
+[12.667665] (-) TimerEvent: {}
+[12.778393] (-) TimerEvent: {}
+[12.881136] (-) TimerEvent: {}
+[12.985581] (-) TimerEvent: {}
+[13.086747] (-) TimerEvent: {}
+[13.194952] (-) TimerEvent: {}
+[13.296346] (-) TimerEvent: {}
+[13.397134] (-) TimerEvent: {}
+[13.498174] (-) TimerEvent: {}
+[13.598565] (-) TimerEvent: {}
+[13.699189] (-) TimerEvent: {}
+[13.799801] (-) TimerEvent: {}
+[13.900228] (-) TimerEvent: {}
+[14.000762] (-) TimerEvent: {}
+[14.102229] (-) TimerEvent: {}
+[14.211752] (-) TimerEvent: {}
+[14.312363] (-) TimerEvent: {}
+[14.413117] (-) TimerEvent: {}
+[14.515348] (-) TimerEvent: {}
+[14.616238] (-) TimerEvent: {}
+[14.716783] (-) TimerEvent: {}
+[14.823670] (-) TimerEvent: {}
+[14.924729] (-) TimerEvent: {}
+[15.032765] (-) TimerEvent: {}
+[15.133509] (-) TimerEvent: {}
+[15.233944] (-) TimerEvent: {}
+[15.334738] (-) TimerEvent: {}
+[15.436651] (-) TimerEvent: {}
+[15.537361] (-) TimerEvent: {}
+[15.644648] (-) TimerEvent: {}
+[15.745615] (-) TimerEvent: {}
+[15.846192] (-) TimerEvent: {}
+[15.948611] (-) TimerEvent: {}
+[16.049097] (-) TimerEvent: {}
+[16.149489] (-) TimerEvent: {}
+[16.250073] (-) TimerEvent: {}
+[16.351073] (-) TimerEvent: {}
+[16.451562] (-) TimerEvent: {}
+[16.552009] (-) TimerEvent: {}
+[16.653173] (-) TimerEvent: {}
+[16.754081] (-) TimerEvent: {}
+[16.854470] (-) TimerEvent: {}
+[16.956416] (-) TimerEvent: {}
+[17.069024] (-) TimerEvent: {}
+[17.169963] (-) TimerEvent: {}
+[17.276274] (-) TimerEvent: {}
+[17.376937] (-) TimerEvent: {}
+[17.478103] (-) TimerEvent: {}
+[17.584656] (-) TimerEvent: {}
+[17.685508] (-) TimerEvent: {}
+[17.786396] (-) TimerEvent: {}
+[17.889452] (-) TimerEvent: {}
+[17.989936] (-) TimerEvent: {}
+[18.096074] (-) TimerEvent: {}
+[18.196849] (-) TimerEvent: {}
+[18.297328] (-) TimerEvent: {}
+[18.397888] (-) TimerEvent: {}
+[18.498407] (-) TimerEvent: {}
+[18.598932] (-) TimerEvent: {}
+[18.699553] (-) TimerEvent: {}
+[18.800439] (-) TimerEvent: {}
+[18.900914] (-) TimerEvent: {}
+[19.002521] (-) TimerEvent: {}
+[19.103055] (-) TimerEvent: {}
+[19.203520] (-) TimerEvent: {}
+[19.304622] (-) TimerEvent: {}
+[19.405111] (-) TimerEvent: {}
+[19.505677] (-) TimerEvent: {}
+[19.606185] (-) TimerEvent: {}
+[19.706762] (-) TimerEvent: {}
+[19.807268] (-) TimerEvent: {}
+[19.935456] (-) TimerEvent: {}
+[20.036602] (-) TimerEvent: {}
+[20.137580] (-) TimerEvent: {}
+[20.238647] (-) TimerEvent: {}
+[20.339221] (-) TimerEvent: {}
+[20.439783] (-) TimerEvent: {}
+[20.540646] (-) TimerEvent: {}
+[20.642128] (-) TimerEvent: {}
+[20.742690] (-) TimerEvent: {}
+[20.843206] (-) TimerEvent: {}
+[20.947672] (-) TimerEvent: {}
+[21.048246] (-) TimerEvent: {}
+[21.148762] (-) TimerEvent: {}
+[21.257631] (-) TimerEvent: {}
+[21.358236] (-) TimerEvent: {}
+[21.458657] (-) TimerEvent: {}
+[21.559162] (-) TimerEvent: {}
+[21.659661] (-) TimerEvent: {}
+[21.760650] (-) TimerEvent: {}
+[21.861144] (-) TimerEvent: {}
+[21.957770] (cpp_pubsub) StdoutLine: {'line': b'[ 75%] \x1b[32m\x1b[1mLinking CXX executable talker\x1b[0m\n'}
+[21.963717] (-) TimerEvent: {}
+[22.064190] (-) TimerEvent: {}
+[22.164750] (-) TimerEvent: {}
+[22.265490] (-) TimerEvent: {}
+[22.366326] (-) TimerEvent: {}
+[22.435687] (cpp_pubsub) StdoutLine: {'line': b'[ 75%] Built target talker\n'}
+[22.466848] (-) TimerEvent: {}
+[22.568365] (-) TimerEvent: {}
+[22.669567] (-) TimerEvent: {}
+[22.770450] (-) TimerEvent: {}
+[22.871386] (-) TimerEvent: {}
+[22.972413] (-) TimerEvent: {}
+[23.073415] (-) TimerEvent: {}
+[23.173951] (-) TimerEvent: {}
+[23.274476] (-) TimerEvent: {}
+[23.374970] (-) TimerEvent: {}
+[23.475649] (-) TimerEvent: {}
+[23.576622] (-) TimerEvent: {}
+[23.677263] (-) TimerEvent: {}
+[23.778068] (-) TimerEvent: {}
+[23.878549] (-) TimerEvent: {}
+[23.979098] (-) TimerEvent: {}
+[24.080333] (-) TimerEvent: {}
+[24.181067] (-) TimerEvent: {}
+[24.281638] (-) TimerEvent: {}
+[24.382233] (-) TimerEvent: {}
+[24.482786] (-) TimerEvent: {}
+[24.585776] (-) TimerEvent: {}
+[24.686783] (-) TimerEvent: {}
+[24.789292] (-) TimerEvent: {}
+[24.889806] (-) TimerEvent: {}
+[24.991498] (-) TimerEvent: {}
+[25.092409] (-) TimerEvent: {}
+[25.193840] (-) TimerEvent: {}
+[25.294868] (-) TimerEvent: {}
+[25.395365] (-) TimerEvent: {}
+[25.496879] (-) TimerEvent: {}
+[25.598387] (-) TimerEvent: {}
+[25.699914] (-) TimerEvent: {}
+[25.801469] (-) TimerEvent: {}
+[25.902887] (-) TimerEvent: {}
+[26.005458] (-) TimerEvent: {}
+[26.105917] (-) TimerEvent: {}
+[26.206397] (-) TimerEvent: {}
+[26.306901] (-) TimerEvent: {}
+[26.408894] (-) TimerEvent: {}
+[26.510902] (-) TimerEvent: {}
+[26.611388] (-) TimerEvent: {}
+[26.711927] (-) TimerEvent: {}
+[26.813568] (-) TimerEvent: {}
+[26.915064] (-) TimerEvent: {}
+[27.017952] (-) TimerEvent: {}
+[27.087914] (cpp_pubsub) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable listener\x1b[0m\n'}
+[27.118520] (-) TimerEvent: {}
+[27.219029] (-) TimerEvent: {}
+[27.320561] (-) TimerEvent: {}
+[27.421984] (-) TimerEvent: {}
+[27.523476] (-) TimerEvent: {}
+[27.624018] (-) TimerEvent: {}
+[27.724541] (-) TimerEvent: {}
+[27.753266] (cpp_pubsub) StdoutLine: {'line': b'[100%] Built target listener\n'}
+[27.778232] (cpp_pubsub) CommandEnded: {'returncode': 0}
+[27.824934] (-) TimerEvent: {}
+[27.843812] (cpp_pubsub) JobProgress: {'identifier': 'cpp_pubsub', 'progress': 'install'}
+[27.870639] (cpp_pubsub) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/owais/CAS/CAS_project/build/cpp_pubsub'], 'cwd': '/home/owais/CAS/CAS_project/build/cpp_pubsub', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:en'), ('USER', 'owais'), ('SSH_AGENT_PID', '1156'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('QT4_IM_MODULE', 'ibus'), ('HOME', '/home/owais'), ('OLDPWD', '/home/owais/CAS'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '824'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'owais'), ('JOURNAL_STREAM', '9:29262'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'owais'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/owaisCAS:@/tmp/.ICE-unix/2725,unix/owaisCAS:/tmp/.ICE-unix/2725'), ('INVOCATION_ID', 'b579194f56e54f4eb4bfe539d312425b'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/34edb3d1_b814_4089_8ea2_124450ea4bee'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.131'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/owais/CAS/CAS_project/build/cpp_pubsub'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[27.889444] (cpp_pubsub) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[27.890149] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/lib/cpp_pubsub/talker\n'}
+[27.892606] (cpp_pubsub) StdoutLine: {'line': b'-- Set runtime path of "/home/owais/CAS/CAS_project/install/cpp_pubsub/lib/cpp_pubsub/talker" to ""\n'}
+[27.893190] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/lib/cpp_pubsub/listener\n'}
+[27.897523] (cpp_pubsub) StdoutLine: {'line': b'-- Set runtime path of "/home/owais/CAS/CAS_project/install/cpp_pubsub/lib/cpp_pubsub/listener" to ""\n'}
+[27.898113] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/ament_index/resource_index/package_run_dependencies/cpp_pubsub\n'}
+[27.898666] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/ament_index/resource_index/parent_prefix_path/cpp_pubsub\n'}
+[27.899417] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/environment/ament_prefix_path.sh\n'}
+[27.899945] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/environment/ament_prefix_path.dsv\n'}
+[27.900678] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/environment/path.sh\n'}
+[27.901247] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/environment/path.dsv\n'}
+[27.901761] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/local_setup.bash\n'}
+[27.902231] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/local_setup.sh\n'}
+[27.902938] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/local_setup.zsh\n'}
+[27.903629] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/local_setup.dsv\n'}
+[27.903953] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/package.dsv\n'}
+[27.904207] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/ament_index/resource_index/packages/cpp_pubsub\n'}
+[27.904487] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/cmake/cpp_pubsubConfig.cmake\n'}
+[27.904962] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/cmake/cpp_pubsubConfig-version.cmake\n'}
+[27.905244] (cpp_pubsub) StdoutLine: {'line': b'-- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/package.xml\n'}
+[27.911945] (cpp_pubsub) CommandEnded: {'returncode': 0}
+[27.925709] (-) TimerEvent: {}
+[28.017254] (cpp_pubsub) JobEnded: {'identifier': 'cpp_pubsub', 'rc': 0}
+[28.020232] (-) EventReactorShutdown: {}
