@@ -31,6 +31,12 @@ R = np.matrix('1 0 0; 0 1 0; 0 0 1')
 u_ref = np.zeros((n_state,N))
 x_ref = np.zeros((n_state,N))
 
+# 4. Define the A and B matrixes of the system for the next calculations, and the value of the different parameters that are contained in the A and B matrixes.
+
+dt = 0.1
+
+#A = np.matrix
+
 ################################################################################  
 # Establish the variables that need to be optimised
 ################################################################################
@@ -70,7 +76,6 @@ func = (1/2)*func
 # by the solver is SX, not the function type.
 
 f = Function('f',(state,action),[func])
-
 
 ################################################################################
 # Calculation of the optimization problem
