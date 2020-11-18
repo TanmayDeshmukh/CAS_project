@@ -19,6 +19,8 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
+#include "nav_msgs/msg/path.hpp"
+#include "geometry_msgs/msg/pose.hpp"
 
 using namespace std::chrono_literals;
 
@@ -32,8 +34,9 @@ public:
   : Node("minimal_publisher"), count_(0)
   {
     publisher_ = this->create_publisher<std_msgs::msg::String>("topic", 10);
+    path_publisher_ = this->create_publisher<nav_msgs::msg::Path>("global_path", 10);
     timer_ = this->create_wall_timer(
-      500ms, std::bind(&MinimalPublisher::timer_callback, this));
+      500ms, std::bind(&MinimalPublisher::timer_callback_path, this));
   }
 
 private:
@@ -44,8 +47,40 @@ private:
     RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());
     publisher_->publish(message);
   }
+  
+  
+  void timer_callback_path()
+  {
+    auto message = nav_msgs::msg::Path();
+    message.header.frame_id = "world";
+    float x=0;
+    auto pose_message = geometry_msgs::msg::PoseStamped();
+    for(float i=0; i<3.414*2; i+=0.01)
+    {
+    	pose_message.header.frame_id = "world";
+    	pose_message.pose.position.x = x;
+    	x += 0.01;
+    	pose_message.pose.position.y = sin(i)*1.0;
+    	pose_message.pose.position.z = 0;
+    	
+    	pose_message.pose.orientation.x = 0.0;
+    	pose_message.pose.orientation.y = 0.0;    	
+    	pose_message.pose.orientation.z = cos(i);
+    	pose_message.pose.orientation.w = 1.0;
+    	
+    	
+    	message.poses.push_back(pose_message);
+    }
+    
+    
+    RCLCPP_INFO(this->get_logger(), "Publishing..");
+    path_publisher_->publish(message);
+  }
+  
+  
   rclcpp::TimerBase::SharedPtr timer_;
   rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
+  rclcpp::Publisher<nav_msgs::msg::Path>::SharedPtr path_publisher_;
   size_t count_;
 };
 
