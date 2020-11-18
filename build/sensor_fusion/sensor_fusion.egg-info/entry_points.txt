@@ -1,0 +1,3 @@
+[console_scripts]
+kalman = sensor_fusion.kalman:main
+
