@@ -1,0 +1,24 @@
+[0.884s] Invoking command in '/home/owais/CAS/CAS_project/build/cpp_pubsub': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/owais/CAS/CAS_project/build/cpp_pubsub -- -j4 -l4
+[1.063s] [ 50%] Built target talker
+[1.080s] [100%] Built target listener
+[1.719s] Invoked command in '/home/owais/CAS/CAS_project/build/cpp_pubsub' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/owais/CAS/CAS_project/build/cpp_pubsub -- -j4 -l4
+[1.839s] Invoking command in '/home/owais/CAS/CAS_project/build/cpp_pubsub': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/owais/CAS/CAS_project/build/cpp_pubsub
+[1.874s] -- Install configuration: ""
+[1.874s] -- Up-to-date: /home/owais/CAS/CAS_project/install/cpp_pubsub/lib/cpp_pubsub/talker
+[1.874s] -- Up-to-date: /home/owais/CAS/CAS_project/install/cpp_pubsub/lib/cpp_pubsub/listener
+[1.875s] -- Up-to-date: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/ament_index/resource_index/package_run_dependencies/cpp_pubsub
+[1.875s] -- Up-to-date: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/ament_index/resource_index/parent_prefix_path/cpp_pubsub
+[1.875s] -- Up-to-date: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/environment/ament_prefix_path.sh
+[1.876s] -- Up-to-date: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/environment/ament_prefix_path.dsv
+[1.876s] -- Up-to-date: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/environment/path.sh
+[1.876s] -- Up-to-date: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/environment/path.dsv
+[1.877s] -- Up-to-date: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/local_setup.bash
+[1.877s] -- Up-to-date: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/local_setup.sh
+[1.877s] -- Up-to-date: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/local_setup.zsh
+[1.877s] -- Up-to-date: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/local_setup.dsv
+[1.878s] -- Installing: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/package.dsv
+[1.878s] -- Up-to-date: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/ament_index/resource_index/packages/cpp_pubsub
+[1.878s] -- Up-to-date: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/cmake/cpp_pubsubConfig.cmake
+[1.879s] -- Up-to-date: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/cmake/cpp_pubsubConfig-version.cmake
+[1.879s] -- Up-to-date: /home/owais/CAS/CAS_project/install/cpp_pubsub/share/cpp_pubsub/package.xml
+[1.886s] Invoked command in '/home/owais/CAS/CAS_project/build/cpp_pubsub' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/owais/CAS/CAS_project/build/cpp_pubsub

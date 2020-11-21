@@ -1,0 +1,3 @@
+[console_scripts]
+state_publisher = bugbot_urdf_description.state_publisher:main
+
