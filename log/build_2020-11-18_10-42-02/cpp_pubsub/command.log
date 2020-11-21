@@ -1,4 +1,0 @@
-Invoking command in '/home/owais/CAS/CAS_project/build/cpp_pubsub': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/owais/CAS/CAS_project/build/cpp_pubsub -- -j4 -l4
-Invoked command in '/home/owais/CAS/CAS_project/build/cpp_pubsub' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/owais/CAS/CAS_project/build/cpp_pubsub -- -j4 -l4
-Invoking command in '/home/owais/CAS/CAS_project/build/cpp_pubsub': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/owais/CAS/CAS_project/build/cpp_pubsub
-Invoked command in '/home/owais/CAS/CAS_project/build/cpp_pubsub' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/owais/CAS/CAS_project/build/cpp_pubsub

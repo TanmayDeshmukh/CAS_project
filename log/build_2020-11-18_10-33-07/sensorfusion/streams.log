@@ -1,9 +1,0 @@
-[1.549s] Invoking command in '/home/owais/CAS/CAS_project/src/sensorfusion': PYTHONPATH=/home/owais/CAS/CAS_project/install/sensorfusion/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/sensorfusion build --build-base /home/owais/CAS/CAS_project/build/sensorfusion/build install --prefix /home/owais/CAS/CAS_project/install/sensorfusion --record /home/owais/CAS/CAS_project/build/sensorfusion/install.log --single-version-externally-managed
-[2.358s] running egg_info
-[2.360s] writing ../../build/sensorfusion/sensorfusion.egg-info/PKG-INFO
-[2.362s] writing dependency_links to ../../build/sensorfusion/sensorfusion.egg-info/dependency_links.txt
-[2.363s] writing entry points to ../../build/sensorfusion/sensorfusion.egg-info/entry_points.txt
-[2.364s] writing requirements to ../../build/sensorfusion/sensorfusion.egg-info/requires.txt
-[2.365s] writing top-level names to ../../build/sensorfusion/sensorfusion.egg-info/top_level.txt
-[2.528s] error: package directory 'sensorfusion' does not exist
-[2.598s] Invoked command in '/home/owais/CAS/CAS_project/src/sensorfusion' returned '1': PYTHONPATH=/home/owais/CAS/CAS_project/install/sensorfusion/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/sensorfusion build --build-base /home/owais/CAS/CAS_project/build/sensorfusion/build install --prefix /home/owais/CAS/CAS_project/install/sensorfusion --record /home/owais/CAS/CAS_project/build/sensorfusion/install.log --single-version-externally-managed
