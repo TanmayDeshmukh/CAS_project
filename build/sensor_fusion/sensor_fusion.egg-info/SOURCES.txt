@@ -11,6 +11,10 @@ setup.py
 resource/sensor_fusion
 sensor_fusion/__init__.py
 sensor_fusion/kalman.py
-test/test_copyright.py
-test/test_flake8.py
-test/test_pep257.py
+sensor_fusion.egg-info/PKG-INFO
+sensor_fusion.egg-info/SOURCES.txt
+sensor_fusion.egg-info/dependency_links.txt
+sensor_fusion.egg-info/entry_points.txt
+sensor_fusion.egg-info/requires.txt
+sensor_fusion.egg-info/top_level.txt
+sensor_fusion.egg-info/zip-safe

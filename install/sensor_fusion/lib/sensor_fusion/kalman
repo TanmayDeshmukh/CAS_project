@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-# EASY-INSTALL-ENTRY-SCRIPT: 'sensor-fusion==0.0.0','console_scripts','kalman'
-__requires__ = 'sensor-fusion==0.0.0'
+# EASY-INSTALL-ENTRY-SCRIPT: 'sensor-fusion','console_scripts','kalman'
+__requires__ = 'sensor-fusion'
 import re
 import sys
 from pkg_resources import load_entry_point
@@ -8,5 +8,5 @@ from pkg_resources import load_entry_point
 if __name__ == '__main__':
     sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
     sys.exit(
-        load_entry_point('sensor-fusion==0.0.0', 'console_scripts', 'kalman')()
+        load_entry_point('sensor-fusion', 'console_scripts', 'kalman')()
     )

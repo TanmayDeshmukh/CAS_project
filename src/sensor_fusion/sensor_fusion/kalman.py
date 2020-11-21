@@ -1,6 +1,11 @@
 import numpy as np
 import rclpy
 from rclpy.node import Node
+from std_msgs.msg import Float64MultiArray
+from nav_msgs.msg import Odometry
+from geometry_msgs.msg import Quaternion
+from transformations import euler_from_quaternion
+
 
 
 class KalmanFilter():
@@ -48,8 +53,37 @@ class KalmanFilter():
 class MyNode(Node):
     def __init__(self):
         super().__init__('kalmanFilter')
-        kf = KalmanFilter()
-        print(kf.Jacobian(0.1))
+        self.kf = KalmanFilter()
+        
+        #Data structure for robot position publishing
+        self.pos_robot = Float64MultiArray()
+
+        #Publisher for robot position
+        self.publisher_pos_robot = self.create_publisher(Float64MultiArray, 
+                                    '/bug_state', 10)
+        
+        self.subscription_odom= self.create_subscription(Odometry,
+                                    '/odom',self.odom_received,10)
+
+    
+    def odom_received(self,msg):
+        robot_pos_x = msg.pose.pose.position.x
+        robot_pos_y = msg.pose.pose.position.y
+        robot_q = Quaternion()
+        robot_q.x = msg.pose.pose.orientation.x
+        robot_q.y = msg.pose.pose.orientation.y
+        robot_q.z = msg.pose.pose.orientation.z
+        robot_q.w = msg.pose.pose.orientation.w
+
+        robot_eul = euler_from_quaternion([robot_q.x,robot_q.y,robot_q.z,robot_q.w])
+
+        self.pos_robot.data = [robot_pos_x,robot_pos_x,np.deg2rad(robot_eul[2])]
+        self.publisher_pos_robot.publish(self.pos_robot)
+
+        print(robot_pos_x)
+        print(robot_pos_x)
+        print(robot_eul)
+
 
 def main(args=None):
     rclpy.init(args=args)
