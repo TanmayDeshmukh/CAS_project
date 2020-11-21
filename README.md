@@ -3,7 +3,7 @@
 2. cd CAS_ws
 3. git pull <this repo>
 4. sudo apt install ros-foxy-gazebo-ros-pkgs 
-
+5. export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/CAS_ws/src:
 # To build package
 0. delete these: /install /log /build
 1. **cd CAS_ws/src**
