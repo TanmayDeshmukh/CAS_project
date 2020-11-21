@@ -1,7 +1,27 @@
 from casadi import *
 import numpy as np
 
-def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: numpy.matrix, A: numpy.matrix, B: numpy.matrix, x_ref: numpy.ndarray, u_ref: numpy.ndarray, action_limit: numpy.ndarray, state_limit: numpy.ndarray):
+################################################################################  
+# Input parameters to the function:
+################################################################################
+'''
+N -> nº of steps ahead
+n_state -> number of state variables
+n_action -> number of input variables
+Q -> matrix involved in state optimization
+R -> matrix involved in action optimization
+A -> state-space matrix A
+B -> state-space matrix B
+####Not included: non-linear term -> state-space matrix of non-linear terms (should be an input as a CASadi variable)
+x_ref -> reference state of the variables in the steps ahead
+u_ref -> reference action of the inputs in the steps ahead
+action_limit -> limit values of the input variables
+state_limit -> limit values of the state variables
+current_state -> numpy vector with the values of the current states (in our case, Kalman input)
+current_action -> numpy vector with the values of the current inputs (obtained in the previous calculation of the action)
+'''
+
+def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: numpy.matrix, A: numpy.matrix, B: numpy.matrix, x_ref: numpy.ndarray, u_ref: numpy.ndarray, action_limit: numpy.ndarray, state_limit: numpy.ndarray, current_state: numpy.ndarray, current_action: numpy.ndarray):
 
 	################################################################################  
 	# Establish the variables that need to be optimised
@@ -11,7 +31,23 @@ def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: nump
 	state = SX.sym('x', n_state*N, 1)
 
 	# 2. Action on each step (u(k),...,u(k+N))
-	action = SX.sym('u',n_action*N,1)
+	action = SX.sym('u', n_action*N, 1)
+
+	# 3. Non-linear terms.
+	non_linear = SX.sym('nl', n_state*N, 1)
+	non_linear_matrix = SX.sym('nl_m', n_state, n_action)
+	dt = 0.1
+
+	# 4. Fill up the non-linear terms
+
+	for i in range(0,N):
+		non_linear_matrix[0,0] = cos(state[n_state*i + 2])
+		non_linear_matrix[0,1] = 0
+		non_linear_matrix[1,0] = sin(state[n_state*i + 2])
+		non_linear_matrix[1,1] = 0
+		non_linear_matrix[2,0] = 0
+		non_linear_matrix[2,1] = dt
+		non_linear[i*n_state : (i+1)*n_state] = mtimes(non_linear_matrix, action[n_action+i : (i+1)*n_action])
 
 	################################################################################
 	# Equations required for the calculation
@@ -22,9 +58,7 @@ def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: nump
 
 	for i in range(0,N):
 		func = func + mtimes(mtimes((state[(i*n_state):(n_state*(i+1))] - x_ref[:,i].transpose()).T,Q),(state[(i*n_state):(n_state*(i+1))] - x_ref[:,i]))
-		#print(func)
 		func = func + mtimes(mtimes((action[(i*n_action):(n_action*(i+1))] - u_ref[:,i].transpose()).T,R),(action[(i*n_action):(n_action*(i+1))] - u_ref[:,i]))
-		#print(func)
 
 	func = (1/2)*func
 
@@ -34,9 +68,25 @@ def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: nump
 	token = SX.sym('t',n_state,1)
 
 	for i in range(0,N-1):
-		token = mtimes(A,state[(i+1)*n_state-1:(i+2)*n_state-1]) + mtimes(B,action[(i+1)*n_action-1:(i+2)*n_action-1]) 
-		for i in range(0, token.size()[0]):
-			func += token[i]
+		if (i == 0):
+
+			non_linear_first = SX.sym('nl_m', n_state, n_action)
+			non_linear_first[0,0] = cos(current_state[2])
+			non_linear_first[0,1] = 0
+			non_linear_first[1,0] = sin(current_state[2])
+			non_linear_first[1,1] = 0
+			non_linear_first[2,0] = 0
+			non_linear_first[2,1] = dt
+
+			non_linear_first_vector = mtimes(non_linear_first,current_action)
+			token = mtimes(A, current_state) + mtimes(B, current_action) + non_linear_first_vector - state[(i+1)*n_state-1:(i+2)*n_state-1]
+
+			for i in range(0, token.size()[0]):
+				func += token[i]
+		else:
+			token = mtimes(A,state[i*n_state : (i+1)*n_state]) + mtimes(B,action[i*n_action:(i+1)*n_action]) + mtimes(non_linear_matrix[i*n_state : (i+1)*n_state][ : ], action[i*n_action:(i+1)*n_action]) - state[(i+1)*n_state:(i+2)*n_state]
+			for i in range(0, token.size()[0]):
+				func += token[i]
 
 	# 3. Add constraints regarding limits of the action values
 	lim_max = DM(action.size()[0] + state.size()[0],1)
