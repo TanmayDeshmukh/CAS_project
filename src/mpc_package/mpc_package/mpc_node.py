@@ -66,7 +66,7 @@ class MinimalPublisher(Node):
 
 		# action and state limits
 		action_limits = np.array([1.0, 0.5])
-		state_limits = np.array([-9999, 9999])
+		state_limits = np.array([-10, 10])
 
 		#u_ref and x_ref should be read
 		u_ref = np.zeros((n_action, N))
@@ -77,7 +77,7 @@ class MinimalPublisher(Node):
 			robot_eul = euler_from_quaternion([msg.poses[i].pose.orientation.x, msg.poses[i].pose.orientation.y, msg.poses[i].pose.orientation.z, msg.poses[i].pose.orientation.w])
 			x_ref[2][i] = robot_eul[2]
 
-		self.applied_action = MPC_controller(A = A, B = B, n_state = n_state, n_action = n_action, N = N, Q = Q, R = R, x_ref = x_ref, u_ref = u_ref, action_limit = action_limits, state_limit = state_limits)
+		self.applied_action = MPC_controller(A = A, B = B, n_state = n_state, n_action = n_action, N = N, Q = Q, R = R, x_ref = x_ref, u_ref = u_ref, action_limit = action_limits, state_limit = state_limits, )
 		
 		print('\napplied_action: ', self.applied_action)
 		self.send_twist()
