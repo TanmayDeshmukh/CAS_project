@@ -19,9 +19,10 @@ action_limit -> limit values of the input variables
 state_limit -> limit values of the state variables
 current_state -> numpy vector with the values of the current states (in our case, Kalman input)
 current_action -> numpy vector with the values of the current inputs (obtained in the previous calculation of the action)
+Optional parameter : guess -> guess solution
 '''
 
-def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: numpy.matrix, A: numpy.matrix, B: numpy.matrix, x_ref: numpy.ndarray, u_ref: numpy.ndarray, action_limit: numpy.ndarray, state_limit: numpy.ndarray, current_state: numpy.ndarray, current_action: numpy.ndarray):
+def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: numpy.matrix, A: numpy.matrix, B: numpy.matrix, x_ref: numpy.ndarray, u_ref: numpy.ndarray, action_limit: numpy.ndarray, state_limit: numpy.ndarray, current_state: numpy.ndarray, current_action: numpy.ndarray, guess = []):
 
 	################################################################################  
 	# Establish the variables that need to be optimised
