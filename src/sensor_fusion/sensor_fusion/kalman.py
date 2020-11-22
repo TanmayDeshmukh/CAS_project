@@ -11,6 +11,7 @@ import time
 
 
 
+
 class KalmanFilter:
     def __init__(self):
         #Initial Estimate
@@ -85,6 +86,7 @@ class MyNode(Node):
     def __init__(self):
         super().__init__('kalmanFilter')
         self.kf = KalmanFilter()
+
         self.tic = None
         self.toc = None
         
@@ -92,12 +94,14 @@ class MyNode(Node):
         self.pos_robot = Float64MultiArray()
         self.imu_data = Imu()
 
+
         #Publisher for robot position
         self.publisher_pos_robot = self.create_publisher(Float64MultiArray, 
                                     '/bug_state', 10)
         
         self.subscription_odom= self.create_subscription(Odometry,
                                     '/odom',self.odom_received,10)
+
 
         self.subscription_imu= self.create_subscription(Imu,
                                     '/imu',self.imu_received,
@@ -112,6 +116,7 @@ class MyNode(Node):
         robot_q.y = msg.pose.pose.orientation.y
         robot_q.z = msg.pose.pose.orientation.z
         robot_q.w = msg.pose.pose.orientation.w
+
 
         #Euler angles returned from function are in radians
         robot_eul = euler_from_quaternion([robot_q.x,robot_q.y,robot_q.z,robot_q.w])
@@ -135,7 +140,6 @@ class MyNode(Node):
         dt = np.float64(dt.nanoseconds)/1000000000
         self.kf.predict(dt,xacc,yacc,zgyro)
         self.tic = self.toc
-
 
 
 def main(args=None):

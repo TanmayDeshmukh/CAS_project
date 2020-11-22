@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'sensor_fusion'
+package_name = 'path_publisher'
 
 setup(
     name=package_name,
@@ -13,14 +13,14 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='owais',
-    maintainer_email='owais@todo.todo',
+    maintainer='tanmay',
+    maintainer_email='tanmay.dn@gmail.com',
     description='TODO: Package description',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'kalman = sensor_fusion.kalman:main'
+        'path_publisher_exec = path_publisher.path_publisher_node:main',
         ],
     },
 )
