@@ -1,2 +1,0 @@
-Invoking command in '/home/owais/CAS/CAS_project/build/cpp_pubsub': /usr/bin/cmake /home/owais/CAS/CAS_project/src/cpp_pubsub -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/owais/CAS/CAS_project/install/cpp_pubsub
-Invoked command in '/home/owais/CAS/CAS_project/build/cpp_pubsub' returned '1': /usr/bin/cmake /home/owais/CAS/CAS_project/src/cpp_pubsub -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/owais/CAS/CAS_project/install/cpp_pubsub
