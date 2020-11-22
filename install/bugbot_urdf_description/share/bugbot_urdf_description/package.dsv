@@ -1,9 +1,0 @@
-source;share/bugbot_urdf_description/hook/pythonpath.ps1
-source;share/bugbot_urdf_description/hook/pythonpath.dsv
-source;share/bugbot_urdf_description/hook/pythonpath.sh
-source;share/bugbot_urdf_description/hook/ament_prefix_path.ps1
-source;share/bugbot_urdf_description/hook/ament_prefix_path.dsv
-source;share/bugbot_urdf_description/hook/ament_prefix_path.sh
-source;../../build/bugbot_urdf_description/share/bugbot_urdf_description/hook/pythonpath_develop.ps1
-source;../../build/bugbot_urdf_description/share/bugbot_urdf_description/hook/pythonpath_develop.dsv
-source;../../build/bugbot_urdf_description/share/bugbot_urdf_description/hook/pythonpath_develop.sh
