@@ -20,6 +20,8 @@ import numpy as np
 from mpc_package.MPC import MPC_controller
 from geometry_msgs.msg import Quaternion
 from transformations import euler_from_quaternion
+from std_msgs.msg import Float64MultiArray
+from nav_msgs.msg import Odometry
 
 
 from geometry_msgs.msg import Twist
@@ -35,15 +37,26 @@ class MinimalPublisher(Node):
 		#timer_period = 0.5  # seconds
 		#self.timer = self.create_timer(timer_period, self.timer_callback)
 		#self.i = 0
+		self.curr_pose = np.array([0.0 , 0.0,  0.0])
+		self.curr_action = np.array([0.0, 0.0])
 
-
-		self.subscription = self.create_subscription(
-		Path,
-		'local_path',
-		self.listener_callback,
-		10)
+		self.subscription = self.create_subscription(Path,'local_path', self.listener_callback, 10)
 		self.subscription  # prevent unused variable warning
+		
+		self.current_pos_subscription = self.create_subscription(Float64MultiArray,'bug_state', self.current_pos_subscription_callback, 10)
+		self.current_pos_subscription  # prevent unused variable warning
+		
+		self.current_action_subscription = self.create_subscription(Twist,'cmd_vel', self.current_action_subscription_callback, 10)
+		self.current_action_subscription  # prevent unused variable warning
 
+	def current_pos_subscription_callback(self, msg):
+		self.curr_pose = np.array(msg.data)
+		
+		
+	def current_action_subscription_callback(self, msg):
+		self.curr_action = np.array([msg.linear.x, euler_from_quaternion( msg.angular.x, msg.angular.y, msg.angular.z, msg.angular.w )])
+		
+		
 	def listener_callback(self, msg):
 		self.get_logger().info('I heard:')
 
@@ -51,7 +64,7 @@ class MinimalPublisher(Node):
 
 		# A and B state-space matrixes
 		A = np.matrix([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
-		B = np.matrix([[1, 1],[1, 0],[0, 1]])
+		B = np.matrix([[0, 0], [0, 0] , [0, 0]])
 
 		# Number of steps ahead we need to take into account
 		N = 20
@@ -77,7 +90,7 @@ class MinimalPublisher(Node):
 			robot_eul = euler_from_quaternion([msg.poses[i].pose.orientation.x, msg.poses[i].pose.orientation.y, msg.poses[i].pose.orientation.z, msg.poses[i].pose.orientation.w])
 			x_ref[2][i] = robot_eul[2]
 
-		self.applied_action = MPC_controller(A = A, B = B, n_state = n_state, n_action = n_action, N = N, Q = Q, R = R, x_ref = x_ref, u_ref = u_ref, action_limit = action_limits, state_limit = state_limits, )
+		self.applied_action = MPC_controller(A = A, B = B, n_state = n_state, n_action = n_action, N = N, Q = Q, R = R, x_ref = x_ref, u_ref = u_ref, action_limit = action_limits, state_limit = state_limits, current_state= self.curr_pose, current_action=self.curr_action)
 		
 		print('\napplied_action: ', self.applied_action)
 		self.send_twist()

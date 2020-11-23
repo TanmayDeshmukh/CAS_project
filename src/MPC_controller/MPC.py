@@ -129,9 +129,9 @@ def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: nump
 	print(S)
 
 	# 2. Establish a guess initial point
-	guess = []
-	for i in range((n_state + n_action) * N):
-		guess.append(0)
+	if (guess == []):
+		for i in range((n_state + n_action) * N):
+			guess.append(0)
 
 	# 3. Store the result of the calculation (can be useful to see how the robot deviates from the desired values)
 	r = S(x0 = guess, lbx = lim_min, ubx = lim_max, lbg = 0, ubg = 0)
