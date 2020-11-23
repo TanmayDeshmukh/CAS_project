@@ -47,7 +47,7 @@ def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: nump
 		non_linear_matrix[1,1] = 0
 		non_linear_matrix[2,0] = 0
 		non_linear_matrix[2,1] = dt
-		non_linear[i*n_state : (i+1)*n_state] = mtimes(non_linear_matrix, action[n_action+i : (i+1)*n_action])
+		non_linear[i*n_state : (i+1)*n_state] = mtimes(non_linear_matrix, action[n_action*i : (i+1)*n_action])
 
 	################################################################################
 	# Equations required for the calculation
