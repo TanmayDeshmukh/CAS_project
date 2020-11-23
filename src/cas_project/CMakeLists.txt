@@ -21,18 +21,27 @@ find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(tf2_ros REQUIRED)
+find_package(tf2 REQUIRED)
+find_package(nav_msgs REQUIRED)
 
 add_executable(listener src/subscriber_member_function.cpp)
 add_executable(global_path_publisher src/global_path_publisher_member_function.cpp)
-#add_executable(odom_publisher_simulation src/odom_pub_simulation.cpp)
+add_executable(odom_pub_simulation src/odom_pub_simulation.cpp)
 
 ament_target_dependencies(listener rclcpp std_msgs)
 ament_target_dependencies(global_path_publisher rclcpp std_msgs nav_msgs geometry_msgs)
-#ament_target_dependencies(odom_publisher_simulation rclcpp std_msgs nav_msgs geometry_msgs)
+ament_target_dependencies(odom_pub_simulation
+	"rclcpp"
+	"tf2"
+	"tf2_ros"
+	"nav_msgs"
+	"geometry_msgs"
+	)
 
 install(TARGETS
   global_path_publisher
-  #odom_publisher_simulation
+  odom_pub_simulation
   listener
   DESTINATION lib/${PROJECT_NAME})
 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})

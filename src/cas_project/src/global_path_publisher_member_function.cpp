@@ -98,7 +98,7 @@ private:
   
   void topic_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg) const
   {
-    RCLCPP_INFO(this->get_logger(), "I heard stuff from kalman %lf", msg->data[0]);
+    RCLCPP_INFO(this->get_logger(), "I heard stuff from kalman %lf %lf", msg->data[0], msg->data[1]);
     
     float dist, prev_dist=1000;
     
@@ -120,7 +120,7 @@ private:
     
     for(int i=0; i < global_path_length; i++)
     {
-    	dist = sqrt((msg->data[0]-path[i][0]) + (msg->data[1]-path[i][1]));
+    	dist = sqrt((msg->data[0]-path[i][0])*(msg->data[0]-path[i][0]) + (msg->data[1]-path[i][1])*(msg->data[1]-path[i][1]));
     	
     	if(dist < prev_dist)
     	{

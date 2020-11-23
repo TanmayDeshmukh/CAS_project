@@ -7,7 +7,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
 
-  use_sim_time = LaunchConfiguration('use_sim_time', default='false')
+  use_sim_time = LaunchConfiguration('use_sim_time', default='true')
   urdf_file_name = 'bugbot_description.urdf'
 
   print("urdf_file_name : {}".format(urdf_file_name))
@@ -29,8 +29,10 @@ def generate_launch_description():
           parameters=[{'use_sim_time': use_sim_time}],
           arguments=[urdf]),
       Node(
-          package='bugbot_urdf_description',
-          executable='state_publisher',
-          name='state_publisher',
-          output='screen'),
+          package='cas_project',
+          executable='odom_pub_simulation',
+          name='odom_pub_simulation',
+          output='screen',
+          parameters=[{'use_sim_time': use_sim_time}],
+          arguments=[])
   ])
