@@ -13,7 +13,9 @@
 # In seperate terminals: 
 4. **ros2 launch gazebo_ros gazebo.launch.py verbose:=true server:=true gui:=true pause:=false**
 5. **ros2 run gazebo_ros spawn_entity.py -entity my_bugbot -x 0.5 -y 0 -z 1 -file ~/CAS_ws/src/bugbot_urdf_description/urdf/bugbot_description.urdf**
-4. **ros2 launch cas_project nodes_launch.py**
+6. **ros2 launch cas_project nodes_launch.py**
+7. **ros2 launch mpc_package mpc_executable**
+8. **ros2 launch sensor_fusion kalman**
 
 # For teleop
 **ros2 run teleop_twist_keyboard teleop_twist_keyboard**
