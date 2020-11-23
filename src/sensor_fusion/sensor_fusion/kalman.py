@@ -121,9 +121,13 @@ class MyNode(Node):
         #Euler angles returned from function are in radians
         robot_eul = euler_from_quaternion([robot_q.x,robot_q.y,robot_q.z,robot_q.w])
 
-        self.kf.update(robot_pos_x,robot_pos_y,robot_eul[2])
+        print("Robot X: ",robot_pos_x)
+        print("Robot Y: ",robot_pos_y)
+        print("Robot Yaw: ",np.rad2deg(robot_eul[0]))
+        self.kf.update(robot_pos_x,robot_pos_y,robot_eul[0])
 
-        self.pos_robot.data = [self.kf.x_hat[0,0],self.kf.x_hat[1,0],np.rad2deg(self.kf.x_hat[2,0])]
+        self.pos_robot.data = [self.kf.x_hat[0,0],self.kf.x_hat[1,0],np.rad2deg(self.kf.x_hat[2,0]),
+                            self.kf.x_hat[3,0],self.kf.x_hat[4,0],self.kf.x_hat[5,0]]
         self.publisher_pos_robot.publish(self.pos_robot)
 
 
