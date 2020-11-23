@@ -37,10 +37,11 @@ public:
   MinimalPublisher()
   : Node("minimal_publisher"), count_(0)
   {
-    
+    global_path_publisher_ = this->create_publisher<nav_msgs::msg::Path>("global_path", 10);
     path_publisher_ = this->create_publisher<nav_msgs::msg::Path>("local_path", 10);
-    //timer_ = this->create_wall_timer(
-    //  500ms, std::bind(&MinimalPublisher::timer_callback_path, this));
+    
+    timer_ = this->create_wall_timer(
+      500ms, std::bind(&MinimalPublisher::timer_callback_path, this));
       
     subscription_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
       "bug_state", 10, std::bind(&MinimalPublisher::topic_callback, this, _1));
@@ -55,11 +56,10 @@ private:
     publisher_->publish(message);
   }
   
-  
   void timer_callback_path()
   {
     auto message = nav_msgs::msg::Path();
-    message.header.frame_id = "world";
+    message.header.frame_id = "odom";
     float x=0;
     auto pose_message = geometry_msgs::msg::PoseStamped();
     global_path_length = 0;
@@ -71,16 +71,26 @@ private:
     	pose_message.pose.position.y = sin(i)*1.0;
     	pose_message.pose.position.z = 0;
     	
-    	pose_message.pose.orientation.x = 0.0;
-    	pose_message.pose.orientation.y = 0.0;    	
-    	pose_message.pose.orientation.z = cos(i);
-    	pose_message.pose.orientation.w = 1.0;
+    	double yaw =cos(i);
+    	double pitch = 0, roll = 0;
+    	
+    	double cy = cos(yaw * 0.5);
+		double sy = sin(yaw * 0.5);
+		double cp = cos(pitch * 0.5);
+		double sp = sin(pitch * 0.5);
+		double cr = cos(roll * 0.5);
+		double sr = sin(roll * 0.5);
+
+    	pose_message.pose.orientation.x = sr * cp * cy - cr * sp * sy;
+    	pose_message.pose.orientation.y = cr * sp * cy + sr * cp * sy;    	
+    	pose_message.pose.orientation.z = cr * cp * sy - sr * sp * cy;
+    	pose_message.pose.orientation.w = cr * cp * cy + sr * sp * sy;
     	message.poses.push_back(pose_message);
     	global_path_length++;
     }
     
-    RCLCPP_INFO(this->get_logger(), "Publishing..");
-    path_publisher_->publish(message);
+    RCLCPP_INFO(this->get_logger(), "Publishing global..");
+    global_path_publisher_->publish(message);
   }
   
   
@@ -123,21 +133,35 @@ private:
     //int local_path_length = 20;
     
     auto message = nav_msgs::msg::Path();
-    message.header.frame_id = "world";
+    message.header.frame_id = "odom";
     x = 0;
     auto pose_message = geometry_msgs::msg::PoseStamped();
     
     
     for(int i=0; i<20; i++)
     {
-    	pose_message.header.frame_id = "world";
+    	pose_message.header.frame_id = "odom";
     	
     	if(closest_index+i<global_path_length)
     	{
-    		RCLCPP_INFO(this->get_logger(), "appending if");
+    		//RCLCPP_INFO(this->get_logger(), "appending if");
+    		
+    		double yaw =path[closest_index+i][2];
+    	double pitch = 0, roll = 0;
+    	
+    	double cy = cos(yaw * 0.5);
+		double sy = sin(yaw * 0.5);
+		double cp = cos(pitch * 0.5);
+		double sp = sin(pitch * 0.5);
+		double cr = cos(roll * 0.5);
+		double sr = sin(roll * 0.5);
     		pose_message.pose.position.x = path[closest_index+i][0];
     		pose_message.pose.position.y = path[closest_index+i][1];
-    		pose_message.pose.orientation.z = path[closest_index+i][2];
+    		
+    		pose_message.pose.orientation.z = cr * cp * sy - sr * sp * cy;
+    		pose_message.pose.orientation.x = sr * cp * cy - cr * sp * sy;
+    		pose_message.pose.orientation.y = cr * sp * cy + sr * cp * sy;    	
+    		pose_message.pose.orientation.w = cr * cp * cy + sr * sp * sy;
     	}
     	else
     	{	
@@ -145,22 +169,31 @@ private:
     		//break;
     		pose_message.pose.position.x = path[global_path_length-1][0];
     		pose_message.pose.position.y = path[global_path_length-1][1];
-    		pose_message.pose.orientation.z = path[global_path_length-1][2];
+    		double yaw =path[global_path_length-1][2];
+			double pitch = 0, roll = 0;
+			
+			double cy = cos(yaw * 0.5);
+			double sy = sin(yaw * 0.5);
+			double cp = cos(pitch * 0.5);
+			double sp = sin(pitch * 0.5);
+			double cr = cos(roll * 0.5);
+			double sr = sin(roll * 0.5);
+    		pose_message.pose.orientation.z = cr * cp * sy - sr * sp * cy;
+    		pose_message.pose.orientation.x = sr * cp * cy - cr * sp * sy;
+    		pose_message.pose.orientation.y = cr * sp * cy + sr * cp * sy;    	
+    		pose_message.pose.orientation.w = cr * cp * cy + sr * sp * sy;
     	}
     	pose_message.pose.position.z = 0;
     	
-    	pose_message.pose.orientation.x = 0.0;
-    	pose_message.pose.orientation.y = 0.0;    	
     	
-    	pose_message.pose.orientation.w = 1.0;
     	
     	message.poses.push_back(pose_message);
     	
     	//local_path_length++;
-    	RCLCPP_INFO(this->get_logger(), "appending: %lf, %lf, %lf", pose_message.pose.position.x, pose_message.pose.position.y, pose_message.pose.position.z);
+    	//RCLCPP_INFO(this->get_logger(), "appending: %lf, %lf, %lf", pose_message.pose.position.x, pose_message.pose.position.y, pose_message.pose.position.z);
     }
     
-    RCLCPP_INFO(this->get_logger(), "Publishing local path..");
+    // RCLCPP_INFO(this->get_logger(), "Publishing local path..");
     path_publisher_->publish(message);
     RCLCPP_INFO(this->get_logger(), "Published local path.");
     
@@ -172,6 +205,7 @@ private:
   rclcpp::TimerBase::SharedPtr timer_;
   rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
   rclcpp::Publisher<nav_msgs::msg::Path>::SharedPtr path_publisher_;
+  rclcpp::Publisher<nav_msgs::msg::Path>::SharedPtr global_path_publisher_;
   size_t count_;
   int global_path_length;
   nav_msgs::msg::Path global_path_message = nav_msgs::msg::Path();
