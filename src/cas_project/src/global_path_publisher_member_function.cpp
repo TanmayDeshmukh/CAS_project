@@ -114,7 +114,7 @@ private:
     	path[j][0] = x;
     	x += 0.01;
     	path[j][1] = sin(i)*1.0;   	
-    	path[j][2] = cos(i);
+    	path[j][2] = atan(cos(i));
     	
     }
     

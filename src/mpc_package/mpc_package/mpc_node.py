@@ -74,12 +74,12 @@ class MinimalPublisher(Node):
 		n_action = 2
 
 		# Q and R matrixes
-		Q = np.matrix([[10, 0, 0],[0, 10, 0],[0, 0, 1]])
-		R = np.matrix([[0, 0],[0, 0]])
+		Q = np.matrix([[1, 0, 0],[0, 0.8, 0],[0, 0, 0.001]])
+		R = np.matrix([[0.01, 0],[0, 0.00001]])
 
 		# action and state limits
-		action_limits = np.array([0.3, 3])
-		state_limits = np.array([9000, 9000, 9000])
+		action_limits = np.array([1.0, 0.3])
+		state_limits = np.array([10, 10, 10])
 
 		# Delta t
 		dt = 0.1
@@ -93,7 +93,8 @@ class MinimalPublisher(Node):
 			x_ref[0][i] = msg.poses[i].pose.position.x
 			x_ref[1][i] = msg.poses[i].pose.position.y
 			robot_eul = euler_from_quaternion([msg.poses[i].pose.orientation.x, msg.poses[i].pose.orientation.y, msg.poses[i].pose.orientation.z, msg.poses[i].pose.orientation.w])
-			x_ref[2][i] = robot_eul[2]
+			print('eul converted', robot_eul)
+			x_ref[2][i] = robot_eul[0]
 
 		self.applied_action = MPC_controller(A = A, B = B, n_state = n_state, n_action = n_action, N = N, Q = Q, R = R, x_ref = x_ref, u_ref = u_ref, action_limit = action_limits, state_limit = state_limits, current_state= self.curr_pose[:3], current_action=self.curr_action, dt = dt)
 		

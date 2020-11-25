@@ -317,7 +317,7 @@
   <gazebo>
   
   <plugin name="joint_states" filename="libgazebo_ros_joint_state_publisher.so">
-  <update_rate> 15 </update_rate>
+  <update_rate> 10 </update_rate>
         <joint_name>wheel_right_joint</joint_name>
         <joint_name>wheel_left_joint</joint_name>
   </plugin>
@@ -348,7 +348,7 @@
 
 
 	    <!-- Plugin update rate in Hz -->
-	    <update_rate>20</update_rate>
+	    <update_rate>10</update_rate>
 
 	    <!-- Name of left joint, defaults to `left_joint` -->
 	    <left_joint>wheel_left_joint</left_joint>

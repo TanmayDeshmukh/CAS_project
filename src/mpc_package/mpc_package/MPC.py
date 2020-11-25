@@ -56,7 +56,7 @@ def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: nump
 		func += mtimes(mtimes((state[:,i] - x_ref[:,i]).T, Q),(state[:,i] - x_ref[:,i]))
 		func += mtimes(mtimes((action[:,i] - u_ref[:,i]).T, R),(action[:,i] - u_ref[:,i]))
 
-	func = (1/2)*func
+	# func = (1/2)*func
 
 
 	opti.minimize(func)
@@ -67,8 +67,8 @@ def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: nump
 
 	# The value of the first step after the one in which we are
 
-	non_linear_first = np.matrix( [[np.cos(np.pi*(current_state[2]/180)), 0], [np.sin(np.pi*(current_state[2]/180)), 0], [0, dt]])
-	print("Current state:")
+	non_linear_first = np.matrix( [[np.cos(np.pi*(current_state[2]/180.0)), 0], [np.sin(np.pi*(current_state[2]/180.0)), 0], [0, dt]])
+	'''print("Current state:")
 	print(current_state.shape)
 	print("Current action:")
 	print(current_action.shape)
@@ -77,18 +77,21 @@ def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: nump
 	print("Matrix B size:")
 	print(B.shape)
 	print("Non linear Matrix size:")
-	print(non_linear_first.shape)
+	print(non_linear_first.shape)'''
 
 	
 	
 	next_step = (A @ current_state) + (B @ current_action) + (non_linear_first @ current_action)
 #	print(next_step)
-	opti.subject_to(state[:,0] == transpose(next_step))
-
-	for i in range(0, N - 1):
-		non_linear_matrix[0,0] = cos(state[2,i])*dt
+	# opti.subject_to(state[:,0] == transpose(next_step))
+	print('\n\nx_ref', x_ref)
+	print('init state : ', transpose(np.matrix( [current_state[0], current_state[1], np.pi*current_state[2]/180.0] )))
+	opti.subject_to(state[:,0] == transpose(np.matrix( [current_state[0], current_state[1], np.pi*current_state[2]/180.0] )))
+	
+	for i in range(1, N - 1):
+		non_linear_matrix[0,0] = cos(state[2,i-1])*dt
 		non_linear_matrix[0,1] = 0
-		non_linear_matrix[1,0] = sin(state[2,i])*dt
+		non_linear_matrix[1,0] = sin(state[2,i-1])*dt
 		non_linear_matrix[1,1] = 0
 		non_linear_matrix[2,0] = 0
 		non_linear_matrix[2,1] = dt
@@ -98,8 +101,8 @@ def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: nump
 
 	for i in range(0,N):
 		for j in range(0,n_state):
-			print("Iteration nº:")
-			print(j)
+			#print("Iteration nº:")
+			#print(j)
 			opti.subject_to( opti.bounded(-state_limit[j], state[j,i], state_limit[j]) )
 		for k in range(0,n_action):
 			if ( k == 0):
@@ -124,7 +127,7 @@ def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: nump
 		guess.append(0)
 
 	# 3. Store the result of the calculation (can be useful to see how the robot deviates from the desired values)
-
+	print("\n Starting solver")
 	r = opti.solve()
 
 	#We could write a csv file or so in which we stored all the relevant information(we could use pandas for that purpose)
@@ -133,9 +136,9 @@ def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: nump
 	# Return the desired action
 	################################################################################
 
-	print("")
+	print("\n state: ")
 	print(r.value(state))
-	print("")
+	print("action: ")
 	print(r.value(action))
 	print("")
 
