@@ -27,7 +27,7 @@ find_package(nav_msgs REQUIRED)
 
 add_executable(listener src/subscriber_member_function.cpp)
 add_executable(global_path_publisher src/global_path_publisher_member_function.cpp)
-add_executable(odom_pub_simulation src/odom_pub_simulation.cpp)
+add_executable(odom_pub_simulation src/kalman_odom_pub.cpp)
 
 ament_target_dependencies(listener rclcpp std_msgs)
 ament_target_dependencies(global_path_publisher rclcpp std_msgs nav_msgs geometry_msgs)

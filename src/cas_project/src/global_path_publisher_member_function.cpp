@@ -138,7 +138,7 @@ private:
     auto pose_message = geometry_msgs::msg::PoseStamped();
     
     
-    for(int i=0; i<20; i++)
+    for(int i=0; i<100; i++)
     {
     	pose_message.header.frame_id = "odom";
     	
@@ -170,14 +170,14 @@ private:
     		pose_message.pose.position.x = path[global_path_length-1][0];
     		pose_message.pose.position.y = path[global_path_length-1][1];
     		double yaw =path[global_path_length-1][2];
-			double pitch = 0, roll = 0;
-			
-			double cy = cos(yaw * 0.5);
-			double sy = sin(yaw * 0.5);
-			double cp = cos(pitch * 0.5);
-			double sp = sin(pitch * 0.5);
-			double cr = cos(roll * 0.5);
-			double sr = sin(roll * 0.5);
+		double pitch = 0, roll = 0;
+		
+		double cy = cos(yaw * 0.5);
+		double sy = sin(yaw * 0.5);
+		double cp = cos(pitch * 0.5);
+		double sp = sin(pitch * 0.5);
+		double cr = cos(roll * 0.5);
+		double sr = sin(roll * 0.5);
     		pose_message.pose.orientation.z = cr * cp * sy - sr * sp * cy;
     		pose_message.pose.orientation.x = sr * cp * cy - cr * sp * sy;
     		pose_message.pose.orientation.y = cr * sp * cy + sr * cp * sy;    	
