@@ -21,7 +21,7 @@ current_state -> numpy vector with the values of the current states (in our case
 current_action -> numpy vector with the values of the current inputs (obtained in the previous calculation of the action)
 '''
 
-def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: numpy.matrix, A: numpy.matrix, B: numpy.matrix, x_ref: numpy.matrix, u_ref: numpy.matrix, action_limit: numpy.ndarray, state_limit: numpy.ndarray, current_state: numpy.ndarray, current_action: numpy.ndarray):
+def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: numpy.matrix, A: numpy.matrix, B: numpy.matrix, x_ref: numpy.matrix, u_ref: numpy.matrix, action_limit: numpy.ndarray, state_limit: numpy.ndarray, current_state: numpy.ndarray, current_action: numpy.ndarray, dt: int):
 
 	################################################################################
 	# Creating Casadi's optimization variable
@@ -38,11 +38,12 @@ def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: nump
 
 	# 2. Action on each step (u(k),...,u(k+N))
 	action = opti.variable(n_action, N)
+	action_first = opti.variable(n_action, 1)
+#	current_state = np.array([current_state[0],current_state[1], current_state[2]*np.pi/180])
 	#action = SX.sym('u',n_action,N)
 
 	# 3. Non-linear terms.
 	non_linear_matrix = opti.variable(n_state, n_action)
-	dt = 0.1
 
 	################################################################################
 	# Equations required for the calculation
@@ -57,6 +58,7 @@ def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: nump
 
 	func = (1/2)*func
 
+
 	opti.minimize(func)
 
 	# Do we have to add the delta u term???
@@ -65,14 +67,28 @@ def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: nump
 
 	# The value of the first step after the one in which we are
 
-	non_linear_first = np.matrix([[cos(current_state[2]), 0], [sin(current_state[2]), 0],[0, dt]])
+	non_linear_first = np.matrix( [[np.cos(np.pi*(current_state[2]/180)), 0], [np.sin(np.pi*(current_state[2]/180)), 0], [0, dt]])
+	print("Current state:")
+	print(current_state.shape)
+	print("Current action:")
+	print(current_action.shape)
+	print("Matrix A size:")
+	print(A.shape)
+	print("Matrix B size:")
+	print(B.shape)
+	print("Non linear Matrix size:")
+	print(non_linear_first.shape)
+
+	
+	
 	next_step = (A @ current_state) + (B @ current_action) + (non_linear_first @ current_action)
-	opti.subject_to(state[:,0] == next_step)
+#	print(next_step)
+	opti.subject_to(state[:,0] == transpose(next_step))
 
 	for i in range(0, N - 1):
-		non_linear_matrix[0,0] = cos(state[2,i])
+		non_linear_matrix[0,0] = cos(state[2,i])*dt
 		non_linear_matrix[0,1] = 0
-		non_linear_matrix[1,0] = sin(state[2,i])
+		non_linear_matrix[1,0] = sin(state[2,i])*dt
 		non_linear_matrix[1,1] = 0
 		non_linear_matrix[2,0] = 0
 		non_linear_matrix[2,1] = dt
@@ -82,9 +98,15 @@ def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: nump
 
 	for i in range(0,N):
 		for j in range(0,n_state):
+			print("Iteration nº:")
+			print(j)
 			opti.subject_to( opti.bounded(-state_limit[j], state[j,i], state_limit[j]) )
 		for k in range(0,n_action):
-			opti.subject_to( opti.bounded(- action_limit[k], action[k,i], action_limit[k]) )
+			if ( k == 0):
+				opti.subject_to(action[k,i] >= 0)
+				opti.subject_to(action[k,i] <= action_limit[k])
+			else:
+				opti.subject_to( opti.bounded(- action_limit[k], action[k,i], action_limit[k]) )
 
 
 	################################################################################

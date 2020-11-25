@@ -54,7 +54,7 @@ class MinimalPublisher(Node):
 		
 		
 	def current_action_subscription_callback(self, msg):
-		self.curr_action = np.array([msg.linear.x, euler_from_quaternion( msg.angular.x, msg.angular.y, msg.angular.z, msg.angular.w )])
+		self.curr_action = np.array([msg.linear.x, msg.angular.z])
 		
 		
 	def listener_callback(self, msg):
@@ -67,30 +67,35 @@ class MinimalPublisher(Node):
 		B = np.matrix([[0, 0], [0, 0] , [0, 0]])
 
 		# Number of steps ahead we need to take into account
-		N = 20
+		N = 5
 
 		# Number of state variables and actions we take into account
 		n_state = 3
 		n_action = 2
 
 		# Q and R matrixes
-		Q = np.matrix([[1, 0, 0],[0, 1, 0],[0, 0, 1]])
-		R = np.matrix([[1, 0],[0, 1]])
+		Q = np.matrix([[10, 0, 0],[0, 10, 0],[0, 0, 1]])
+		R = np.matrix([[0, 0],[0, 0]])
 
 		# action and state limits
-		action_limits = np.array([1.0, 0.5])
-		state_limits = np.array([-10, 10])
+		action_limits = np.array([0.3, 3])
+		state_limits = np.array([9000, 9000, 9000])
+
+		# Delta t
+		dt = 0.1
 
 		#u_ref and x_ref should be read
 		u_ref = np.zeros((n_action, N))
 		x_ref = np.zeros((n_state, N))
-		for i in range (len(msg.poses)):
+		print(len(msg.poses))
+#		for i in range (len(msg.poses)):
+		for i in range(N):
 			x_ref[0][i] = msg.poses[i].pose.position.x
 			x_ref[1][i] = msg.poses[i].pose.position.y
 			robot_eul = euler_from_quaternion([msg.poses[i].pose.orientation.x, msg.poses[i].pose.orientation.y, msg.poses[i].pose.orientation.z, msg.poses[i].pose.orientation.w])
 			x_ref[2][i] = robot_eul[2]
 
-		self.applied_action = MPC_controller(A = A, B = B, n_state = n_state, n_action = n_action, N = N, Q = Q, R = R, x_ref = x_ref, u_ref = u_ref, action_limit = action_limits, state_limit = state_limits, current_state= self.curr_pose, current_action=self.curr_action)
+		self.applied_action = MPC_controller(A = A, B = B, n_state = n_state, n_action = n_action, N = N, Q = Q, R = R, x_ref = x_ref, u_ref = u_ref, action_limit = action_limits, state_limit = state_limits, current_state= self.curr_pose[:3], current_action=self.curr_action, dt = dt)
 		
 		print('\napplied_action: ', self.applied_action)
 		self.send_twist()
@@ -102,7 +107,7 @@ class MinimalPublisher(Node):
 
 		self.publisher_.publish(msg)
 		self.get_logger().info('Publishing: "%lf"' % msg.linear.x)
-		self.i += 1
+#		self.i += 1
 
 def main(args=None):
 	rclpy.init(args=args)
