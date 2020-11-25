@@ -1,8 +1,9 @@
-/src/sensor_fusion/sensor_fusion/__pycache__
+/src/sensor_fusion/sensor_fusion/__pycache__/__init__.cpython-38.pyc
+/src/sensor_fusion/sensor_fusion/__pycache__/kalman.cpython-38.pyc
 /src/build/
 /src/install/
 /src/log/
 build
 install
 log
-
+*.pyc
