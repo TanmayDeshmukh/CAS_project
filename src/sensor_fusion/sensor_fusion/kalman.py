@@ -5,7 +5,7 @@ from rclpy.qos import qos_profile_sensor_data
 from std_msgs.msg import Float64MultiArray
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Quaternion
-from sensor_msgs.msg import Imu
+from sensor_msgs.msg import Imu,NavSatFix
 from transformations import euler_from_quaternion
 import time
 
@@ -107,8 +107,20 @@ class MyNode(Node):
                                     '/imu',self.imu_received,
                                     qos_profile=qos_profile_sensor_data)
 
+        self.subscription_gps= self.create_subscription(NavSatFix,
+                                    '/gps',self.gps_republish,
+                                    qos_profile=qos_profile_sensor_data)
+
+        #Re-publishers for Odom and GPS
+        self.publisher_odom = self.create_publisher(Odometry, 
+                                    'odometry/filtered', 10)
+
+        self.publisher_gps = self.create_publisher(NavSatFix, 
+                                    'gps/fix', 10)
+
     
     def odom_received(self,msg):
+        self.publisher_odom.publish(msg)
         robot_pos_x = msg.pose.pose.position.x
         robot_pos_y = msg.pose.pose.position.y
         robot_q = Quaternion()
@@ -144,6 +156,9 @@ class MyNode(Node):
         dt = np.float64(dt.nanoseconds)/1000000000
         self.kf.predict(dt,xacc,yacc,zgyro)
         self.tic = self.toc
+    
+    def gps_republish(self,msg):
+        self.publisher_gps.publish(msg)
 
 
 def main(args=None):
