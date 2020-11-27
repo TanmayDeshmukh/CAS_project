@@ -89,7 +89,7 @@ def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: nump
 	# 4. Setting the initial value constraint
 	# Input angle is in degrees
 
-	current_state[2] = np.pi*(current_state[2]/180)
+	current_state[2] = np.pi*(current_state[2]/180.0)
 
 	opti.subject_to(state[:,0] - current_state == 0)
 

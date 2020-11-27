@@ -53,8 +53,8 @@ def MPC_controller(N: int, n_state: int, n_action: int, Q: numpy.matrix, R: nump
 	func = MX(0)
 
 	for i in range(0,N):
-		func += mtimes(mtimes((state[:,i] - x_ref[:,i]).T, Q),(state[:,i] - x_ref[:,i]))
-		func += mtimes(mtimes((action[:,i] - u_ref[:,i]).T, R),(action[:,i] - u_ref[:,i]))
+		func += mtimes(mtimes((state[:,i] - x_ref[:,i]).T, Q/(N-i)),(state[:,i] - x_ref[:,i]))
+		func += mtimes(mtimes((action[:,i] - u_ref[:,i]).T, R/(N-i)),(action[:,i] - u_ref[:,i]))
 
 	# func = (1/2)*func
 

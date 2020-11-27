@@ -17,7 +17,7 @@ import rclpy
 
 from rclpy.node import Node
 import numpy as np
-from mpc_package.MPC import MPC_controller
+from mpc_package.MPC_def import MPC_controller
 from geometry_msgs.msg import Quaternion
 from transformations import euler_from_quaternion
 from std_msgs.msg import Float64MultiArray
@@ -67,18 +67,18 @@ class MinimalPublisher(Node):
 		B = np.matrix([[0, 0], [0, 0] , [0, 0]])
 
 		# Number of steps ahead we need to take into account
-		N = 5
+		N = 10
 
 		# Number of state variables and actions we take into account
 		n_state = 3
 		n_action = 2
 
 		# Q and R matrixes
-		Q = np.matrix([[1, 0, 0],[0, 0.8, 0],[0, 0, 0.001]])
-		R = np.matrix([[0.01, 0],[0, 0.00001]])
+		Q = np.matrix([[1, 0, 0],[0, 1.0, 0],[0, 0, 0.01]])
+		R = np.matrix([[0.000001, 0],[0, 0.000001]])
 
 		# action and state limits
-		action_limits = np.array([1.0, 0.3])
+		action_limits = np.array([0.5, 0.4])
 		state_limits = np.array([10, 10, 10])
 
 		# Delta t
@@ -96,7 +96,7 @@ class MinimalPublisher(Node):
 			print('eul converted', robot_eul)
 			x_ref[2][i] = robot_eul[0]
 
-		self.applied_action = MPC_controller(A = A, B = B, n_state = n_state, n_action = n_action, N = N, Q = Q, R = R, x_ref = x_ref, u_ref = u_ref, action_limit = action_limits, state_limit = state_limits, current_state= self.curr_pose[:3], current_action=self.curr_action, dt = dt)
+		self.applied_action = MPC_controller(A = A, B = B, n_state = n_state, n_action = n_action, N = N, Q = Q, R = R, x_ref = x_ref, u_ref = u_ref, action_limit = action_limits, state_limit = state_limits, current_state= self.curr_pose[:3],  dt = dt) #current_action=self.curr_action,
 		
 		print('\napplied_action: ', self.applied_action)
 		self.send_twist()
